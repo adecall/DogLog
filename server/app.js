@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const graphqlHTTP = require('express-graphql');
 const schema = require('./schema/schema');
@@ -9,7 +10,7 @@ const app = express();
 // Allows cross-origin requests
 app.use(cors());
 
-mongoose.connect('mongodb://alex123:alex123@ds145072.mlab.com:45072/heroku_pgz78hxp');
+mongoose.connect('mongodb://' + process.env.username + ':' + process.env.password + '@' + process.env.host + ':' + process.env.port + '/' + process.env.database);
 mongoose.connection.once('open', () => {
     console.log('connected to the database');
 });
