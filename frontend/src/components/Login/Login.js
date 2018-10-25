@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import "./Login.css";
-import  Signup from "../Signup";
+import { Redirect} from "react-router-dom";
+// import  Signup from "../Signup";
 
 export default class Login extends Component {
   constructor(props) {
@@ -9,15 +10,18 @@ export default class Login extends Component {
 
     this.state = {
       showSignup: false,
-      showLogin: true,
+      volenteerrating: false,
       email: "",
       password: ""
     };
   }
-  onClick(e){
+  loginOnClick(e){
     e.preventDefault();
-    this.setState({showSignup: !this.state.showSignup,showLogin: !this.state.ShowLogin
-    })
+    this.setState({volenteerrating:!this.state.volenteertable})
+  }
+  onClickSignup(e){
+    e.preventDefault();
+    this.setState({showSignup: !this.state.showSignup })
   }
   validateForm() {
     return this.state.email.length > 0 && this.state.password.length > 0;
@@ -59,11 +63,18 @@ export default class Login extends Component {
             bsSize="large"
             disabled={!this.validateForm()}
             type="submit"
+            onClick={this.loginOnClick.bind(this)}
           >
             Login
+             
+          {this.state.volenteerrating && <Redirect to={{
+            pathname: '/addrating'
+          }} />}
           </Button>
-          <Button className="button" type="submit"><a onClick={this.onClick.bind(this)} href='#'>Signup</a>
-        {this.state.showSignup && <Signup />}</Button>
+          <p>Dont have an account signUp1<Button className="button" type="submit" onClick={this.onClickSignup.bind(this)}>Signup
+          {this.state.showSignup && <Redirect to={{
+            pathname: '/signup'
+          }} />}</Button></p>
           
         </form>
       </div>

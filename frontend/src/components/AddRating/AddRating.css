@@ -1,0 +1,12 @@
+
+@media all and (min-width: 480px) {
+    .volenteerrating {
+      padding: 60px 0;
+      background-color:#46733E;
+    }
+  
+    .volenteerrating form {
+      margin: 0 auto;
+      max-width: 320px;
+    }
+  }
