@@ -1,81 +1,153 @@
-import React, { Component } from "react";
+
+import React, { Component } from 'react';
+import axios from 'axios';
+import Results from "../Results";
 import { FormGroup, FormControl,ControlLabel,Button } from "react-bootstrap";
 import "./Signup.css";
 import {Redirect} from "react-router-dom";
-class Signup extends Component{
-    constructor(props) {
-        super(props);
+
+class Signup extends Component {
+    constructor(props, context) {
+        super(props, context);
+    
+        this.handleInputChange = this.handleInputChange.bind(this);
+    
+  
     this.state = {
-        showLogin: false,
-        
-        username: "",
-        email: "",
-        password: ""
-      }
+  
+      data: [],
+      id: "",
+      fname: '',
+      lname: '',
+      email: '',
+      password: '',
+      showLogin: false,
+      showresult: false,
+      intervalIsSet: false
+    };
+}
+
+  validateForm() {
+    return this.state.email.length > 0 && this.state.password.length > 0 && this.state.fname.length>0 && this.state.lname.length>0 ;
+  }
+  componentDidMount() {
+    this.getDataFromDb();
+    if (!this.state.intervalIsSet) {
+      let interval = setInterval(this.getDataFromDb, 1000);
+      this.setState({ intervalIsSet: interval});
     }
-    onClickLogin(e){
-      e.preventDefault();
-      this.setState({showLogin: !this.state.showLogin})
+  }
+  componentWillUnmount() {
+    if (this.state.intervalIsSet) {
+      clearInterval(this.state.intervalIsSet);
+      this.setState({ intervalIsSet: null });
     }
-    validateForm() {
-      return this.state.email.length > 0 && this.state.password.length > 0;
+  }
+
+  handleInputChange = e => {
+    
+   const { name, value } = e.target;
+    this.setState({ [name]: value });
+  }
+  onClickLogin(e){
+    e.preventDefault();
+    this.setState({showLogin: !this.state.showLogin, showresult: this.state.sshowresult })
+  }
+  onSubmit = (e) => {
+    e.preventDefault();
+    // get our form data out of state
+    let currentIds = this.state.data.map(data => data.id);
+    let idToBeAdded = 0;
+    while (currentIds.includes(idToBeAdded)) {
+      ++idToBeAdded;
     }
-    handleChange = event => {
-      this.setState({
-        [event.target.id]: event.target.value
+
+    const { fname, lname, email, password } = this.state;
+
+    axios.post('/api/putData', { id: idToBeAdded, fname, lname, email, password})
+      .then((result) => {
+        console.log(result);
+        //access the results here....
+        // this.getDataFromDb();
+        this.setState({
+      
+            fname: "",
+            lname:"",
+            email: "",
+            password: ""
+          });
+          
       });
-    }
-    handleSubmit = event => {
-      event.preventDefault();
-    }
-render() {
+  }
+  getDataFromDb = () => {
+    fetch("/api/getData")
+      .then(data => data.json())
+      .then(res => this.setState({ data: res.data }));
+  };
+  render() {
+    
     return (
-        
-        <div className="signin">
-        <form onSubmit={this.handleSubmit}>
-          <FormGroup controlId="username">
-              <ControlLabel>Full name: </ControlLabel>
+    
+      <div className="signin">
+        <form>
+          <FormGroup controlId="formBasicText">
+              <ControlLabel>First name: </ControlLabel>
               <FormControl
                   type="text"
-                  value={this.state.username}
-                  onChange={this.handleChange}
-                  placeholder="Enter your name here..."></FormControl>
+                  name="fname"
+                  value={this.state.fname}
+                  onChange={this.handleInputChange}
+                  />
+          </FormGroup>
+          <FormGroup controlId="lname">
+              <ControlLabel>Last name: </ControlLabel>
+              <FormControl
+                  type="text"
+                  name="lname"
+                  value={this.state.lname}
+                  onChange={this.handleInputChange}
+                  />
           </FormGroup>
                 
         
-          <FormGroup controlId="email" bsSize="large">
+          <FormGroup controlId="formControlsEmail" bsSize="large">
             <ControlLabel>Email</ControlLabel>
             <FormControl
               autoFocus
               type="email"
+              name="email"
               value={this.state.email}
-              onChange={this.handleChange}
+              onChange={this.handleInputChange}
             />
           </FormGroup>
-          <FormGroup controlId="password" bsSize="large">
+          <FormGroup controlId="formControlsPassword" bsSize="large">
             <ControlLabel>Password</ControlLabel>
             <FormControl
+            autoFocus
+            type="password"
+            name="password"
               value={this.state.password}
-              onChange={this.handleChange}
-              type="password"
+              onChange={this.handleInputChange}
+              
             />
           </FormGroup>
           <Button
-            block
-            bsSize="large"
-            disabled={!this.validateForm()}
+            // block
+            // bsSize="large"
+            // disabled={!this.validateForm()}
             type="submit"
+            onClick={this.onSubmit}
           >
             Signup
-          </Button>
-          <Button className="button" type="submit" onClick={this.onClickLogin.bind(this)}>Login
+          </Button><br />
+          <p>if you have account  <a className="button" type="submit" href="" onClick={this.onClickLogin.bind(this)}>Login
           {this.state.showLogin && <Redirect to={{
             pathname: '/login'
-          }} />}</Button>
+          }} />}</a></p>
         </form>
-            
+         {<Results data={this.state.data}/> && this.state.showresult  }
         </div>
     );
-}
+  }
 }
 export default Signup;
