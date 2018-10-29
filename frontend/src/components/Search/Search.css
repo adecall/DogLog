@@ -1,0 +1,53 @@
+.jumbobckd{
+    /* background-repeat: no-repeat; */
+    background-image: url(./images/hound.jpg);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+      font-family: Lato, sans-serif;
+    padding: 10%;
+    padding-left: 30%;
+}
+.form{
+    font-size: 20px;
+     
+     padding:10px;
+     margin:auto;
+      /* float: left;
+      margin-right: 0px; */
+    
+   }
+   #home h1{
+
+    justify-content: center;
+    display: flex;
+    font-size: 400%;
+    font-weight: bold;
+    color: white;
+    font-stretch: expanded;
+    margin-top: 5%; 
+   
+}
+   .select{
+    /* font-size: 18px; */
+    height: 50px;
+   margin-top: 10%;
+    width: 15%;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 4px;
+    color: rgb(247, 238, 238)!important;
+    background-color: gray;
+}
+.blockform{
+    display: inline-block;
+    width:100%;
+    margin: auto;
+    text-align: center;
+    padding-top: 40px;
+    font-size: 20px;
+    color: #013220;
+    font-family: Lato, sans-serif;
+   
+}   

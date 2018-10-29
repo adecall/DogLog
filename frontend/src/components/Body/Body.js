@@ -1,38 +1,26 @@
 import React, { Component } from "react";
 import  "./Body.css";
-import {Redirect} from "react-router-dom";
 
-import { Button,Jumbotron,Navbar,Nav,NavItem,FormGroup,FormControl,Form } from 'react-bootstrap';
-import { Grid , Row, Col,Image,Media,Panel} from "react-bootstrap";
+import { Button,Navbar,Nav,NavItem } from 'react-bootstrap';
+import { Image,Media } from "react-bootstrap";
+import Animalinfo from "../Animalinfo";
+import About from "../About"
+import Search from "../Search";
 // import { BrowserRouter as Router,Link } from "react-router-dom"
 class Body extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
-          showLogin: false,
-          showSignup:false,
-          showResult:false,
-            size:"",
-            age: "",
-            sex: ""
+          showAnimal: false,
           
         }
       }
-      handleChange(event){
-        this.setState({[event.name]:event.target.value})
-      }
-      onClicksubmit(e){
+      
+      onClickAnimal(e){
         e.preventDefault();
-        this.setState({showresult: !this.state.showLogin})
+        this.setState({showAnimal: !this.state.showAnimal})
       }
-      onClickLogin(e){
-        e.preventDefault();
-        this.setState({showLogin: !this.state.showLogin})
-      }
-      onClickSignup(e){
-        e.preventDefault();
-        this.setState({showLogin: !this.state.showLogin})
-      }
+     
     render(){
         return(
             
@@ -52,58 +40,12 @@ class Body extends Component {
                     </Nav>
                     <Nav pullRight>
                         <NavItem  eventKey={1} href="/login">Login</NavItem>
-                        <NavItem  eventKey={2} href="/signup">Signup</NavItem>    
+                        <NavItem  eventKey={2} href="/signup">Signup</NavItem>
+                        <NavItem  eventKey={3} href="/animals">Administrator</NavItem>    
                     </Nav>   
                 </Navbar>
                
-            <Jumbotron id="home" className="jumbobckd">
-                <h1>Dog Log</h1>
-                
-                <Form inline  center className="blockform">
-                <FormGroup className="form" controlId="formInlineSize">
-                    {/*<ControlLabel>Type of Animal</ControlLabel>*/}
-                    <FormControl className="select" componentClass="select" value={this.state.value} onChange={this.handleChange} placeholder="Dog or cat">
-                        <option value="select">dog or cat</option>
-                        <option value="other">Cat</option>
-                        <option value="other">Dog</option>
-                        
-                    </FormControl>
-                </FormGroup>
-                <FormGroup className="form" controlId="formInlineAge">
-                   {/*<ControlLabel>Age</ControlLabel>*/}
-                    <FormControl className="select" componentClass="select" value={this.state.value} onChange={this.handleChange} placeholder="Age">
-                        <option value="select">select age</option>
-                        <option value="other">baby</option>
-                        <option value="other">Young</option>
-                        <option value="other">Adult</option>
-                        <option value="other">Senior</option>
-                    </FormControl>
-                </FormGroup>
-                <FormGroup className="form" controlId="formInlineSex">
-                    {/*<ControlLabel>Sex</ControlLabel>*/}
-                    <FormControl className="select" componentClass="select" value={this.state.value} onChange={this.handleChange} placeholder="select sex">
-                        <option value="select">select gender</option>
-                        <option value="other">Female</option>
-                        <option value="other">Male</option>
-                    </FormControl>
-                </FormGroup>
-                <FormGroup className="form"  controlId="formInlineSize">
-                    { /*<ControlLabel>Size</ControlLabel>*/}
-                    <FormControl className="select"  componentClass="select" value={this.state.value} onChange={this.handleChange}  placeholder="select size">
-                        <option value="select">select size</option>
-                        <option value="other">Small</option>
-                        <option value="other">Medium</option>
-                        <option value="other">Large</option>
-                    </FormControl>
-                </FormGroup>
-                </Form>
-                <FormGroup center className="textarea" controlId="formControlsTextarea">
-            {/*<ControlLabel>Zipcode</ControlLabel>*/}
-                    <FormControl className="text" componentClass="textarea" placeholder="Zip Code" />
-                </FormGroup>
-                <Button className="button" onClick={this.onClicksubmit.bind(this)} type="submit">{}Search</Button>
-                
-            </Jumbotron>
+           <Search />
             
             <div id="about">
                 <Media>
@@ -122,33 +64,12 @@ class Body extends Component {
                 </Media>
                  
         </div>
-            <Grid>
-                <Row>
-                    
-                    <Col xs={12} md={3} lg={3}>
-                    <Image src="https://placehold.it/150x80?text=IMAGE" rounded responsive/>
-                    <p>Devid MacFadyen</p>
-                    </Col>
-                    <Col xs={12} md={3} lg={3}>      
-                    <Image src="https://placehold.it/150x80?text=IMAGE" rounded responsive />
-                    <p>Albert Decall</p>
-                    </Col>
-                    <Col xs={12} md={3} lg={3}>      
-                    <Image src="https://placehold.it/150x80?text=IMAGE" rounded responsive />
-                    <p>Alex</p>
-                    </Col>
-                    <Col xs={12} md={3} lg={3}>      
-                    <Image src="https://placehold.it/150x80?text=IMAGE" rounded responsive />
-                    <p>Aynalem</p>
-                    </Col>
-                </Row>
-            </Grid>;
+            
           
-            <h5>click the button to sign in or signup</h5>
-            <Button className="button" type="submit" onClick={this.onClickLogin.bind(this)} >Volentiers
-          {this.state.showLogin && <Redirect to={{
-            pathname: '/login'
-          }} />}</Button>
+            <About />
+            <Button className="submit" type="submit" onClick={this.onClickAnimal.bind(this)} >Volentiers
+          {this.state.showAnimal && <Animalinfo />}
+          </Button>
           
         </div>        )
     }
