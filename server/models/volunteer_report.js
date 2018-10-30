@@ -7,7 +7,10 @@ const VolunteerReport = new Schema({
     lay_down_rating: Number,
     walk_on_leash_rating: Number,
     sit_in_crate_rating: Number,
-    comment: String
+    comment: String,
+    volunteer: { type: Schema.Types.ObjectId, ref: 'Volunteer' },
+    animal: { type: Schema.Types.ObjectId, ref: 'Animal' },
+    shelter: { type: Schema.Types.ObjectId, ref: 'Shelter' },
 });
 
 module.exports = mongoose.model('VolunteerReport', VolunteerReport);

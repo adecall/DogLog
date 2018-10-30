@@ -16,7 +16,7 @@ db.once("open", () => console.log("connected to the database"));
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 module.exports.db = db;
 
-module.exports.User = require('./user')
+module.exports.Volunteer = require('./volunteer')
 module.exports.Animal = require('./animal')
 module.exports.Shelter = require('./shelter')
 module.exports.VolunteerReport = require('./volunteer_report')

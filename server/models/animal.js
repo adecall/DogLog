@@ -12,7 +12,8 @@ const AnimalSchema = new Schema(
     age: Number,
     size: String,
     agelable: String,
-    likes: Number
+    likes: Number,
+    shelter: { type: Schema.Types.ObjectId, ref: 'Shelter' },
   },
   { timestamps: true }
 );
