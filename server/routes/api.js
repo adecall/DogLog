@@ -112,6 +112,8 @@ router.post('/seed_data', (req, res) => {
         db.Shelter.remove()
     }
     // Here is where we will seed the data
+
+    res.json({success: true})
 })
 
 module.exports = router;
