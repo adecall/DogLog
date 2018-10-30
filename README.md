@@ -18,6 +18,15 @@ yarn install
 
 ### Backend 
 
+First, copy the `server/.env.template` file to `server/.env`
+
+```
+cp server/.env.template server/.env`
+```
+
+Then edit the `server/.env` file so it has the right configuration values for your local environment
+
+
 ```
 cd server
 npm install
