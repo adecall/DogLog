@@ -1,7 +1,7 @@
 const express = require('express');
 const db = require('../models')
 const router = express.Router();
-
+const seeder = require('../test_data/seeder');
 
 router.get("/getData", (req, res) => {
     db.User.find((err, data) => {
@@ -106,14 +106,22 @@ router.post("/putAnimal", (req, res) => {
 router.post('/seed_data', (req, res) => {
 
     if (req.query.reset) {
-        db.Animal.remove()
-        db.User.remove()
-        db.VolunteerReport.remove()
-        db.Shelter.remove()
+        seeder.resetData()
+        .then(() => seeder.seedData())
+        .then(() => {
+            res.json({success: true});
+        })
+        .catch(err => {
+            res.json({success: false, error: err})
+        })
+        
+    } else {
+        seeder.seedData().then( () => {
+            res.json({success: true})
+        }).catch(err => {
+            res.json({success: false, error: err})
+        })
     }
-    // Here is where we will seed the data
-
-    res.json({success: true})
 })
 
 module.exports = router;
