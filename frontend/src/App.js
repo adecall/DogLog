@@ -7,11 +7,12 @@ import { BrowserRouter as Router, Route} from "react-router-dom";
 import { Panel} from "react-bootstrap";
 import AddRating from './components/AddRating';
 import Footer from "./components/Footer";
+import Contact from "./components/Contact";
 class App extends Component {
   render(){
     return(
       <div>
-      <Panel>
+     
   <Panel.Body>
   <Body />
   <Router>
@@ -26,8 +27,8 @@ class App extends Component {
   
   {/*<Results /> */}
   </Panel.Body>
-  <Panel.Footer><Footer /></Panel.Footer>
-</Panel>;
+  <Panel.Footer><Footer  /></Panel.Footer>
+
      
       </div>
       
