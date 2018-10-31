@@ -63,11 +63,11 @@ router.get("/getData", (req, res) => {
 
   router.get("/getAnimal", (req, res) => {
     // if animal type is dog 
-    var query = {$and:[{animaltype:{$regex: req.body.animaltype, $options: 'i'}},
+    {/*var query = {$and:[{animaltype:{$regex: req.body.animaltype, $options: 'i'}},
     {size:{$regex: req.body.size, $options: 'i'}},
     {agelable:{$regex: req.body.agelable, $options: 'i'}},
-    {sex:{$regex: req.body.sex, $options: 'i'}},{weight:1}]}
-    Animal.find(query,(err, animal) => {
+  {sex:{$regex: req.body.sex, $options: 'i'}},{weight:1}]}*/}
+    Animal.find((err, animal) => {
       console.log("animal"+ animal);
       if (err) return res.json({ success: false, error: err });
       return res.json({ success: true, animal:animal });
