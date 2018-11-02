@@ -7,7 +7,8 @@ import { BrowserRouter as Router, Route} from "react-router-dom";
 import { Panel} from "react-bootstrap";
 import AddRating from './components/AddRating';
 import Footer from "./components/Footer";
-import Contact from "./components/Contact";
+// simport Contact from "./components/Contact";
+// import Map from "./components/Map"
 class App extends Component {
   render(){
     return(

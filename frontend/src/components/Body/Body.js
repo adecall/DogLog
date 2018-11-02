@@ -7,6 +7,7 @@ import { Image,Media } from "react-bootstrap";
 import About from "../About"
 import Search from "../Search";
 import AddRating from "../AddRating";
+// import Instagram from "../Instagram";
 // import { BrowserRouter as Router,Link } from "react-router-dom"
 class Body extends Component {
     constructor(props) {
@@ -49,7 +50,7 @@ class Body extends Component {
                     </Navbar.Collapse> 
                 </Navbar>
                
-           <Search />
+                <Search />
             
             <div id="about">
             <Row>
@@ -73,13 +74,14 @@ class Body extends Component {
                     </Col>
                 </Media>
                 </Row>
-        </div>
+            </div>
             
-          
+        {/*<Instagram />*/}
             <About />
             <Button className="submit"  type="submit"  onClick={this.onClickAnimal.bind(this)} >Volentiers
-          {this.state.showAnimal && <AddRating />}
+         
           </Button>
+          {this.state.showAnimal && <AddRating />}
           
         </div>        )
     }
