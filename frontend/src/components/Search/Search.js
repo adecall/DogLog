@@ -54,7 +54,7 @@ componentDidMount() {
       getSearchDataFromDb = ()=> {
           fetch("/api/getAnimal")
           .then(data => data.json())
-          .then(res => this.setState({ animal: res.animal }))
+          .then(res => this.setState({ animal: res.data }))
           
       }
 

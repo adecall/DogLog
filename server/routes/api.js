@@ -10,7 +10,7 @@ router.get("/getData", (req, res) => {
     });
 });
 router.post("/putData", (req, res) => {
-    let data = new db.User();
+    let data = new db.Volunteer();
 
     const { id, fname, lname, email } = req.body;
 
@@ -123,5 +123,22 @@ router.post('/seed_data', (req, res) => {
         })
     }
 })
+
+router.post("/addrating", (req, res) => {
+    let volenteerReport = new db.VolunteerReport();
+    const { name, sit_rating, lay_down_rating, walk_on_leash_rating, sit_in_crate_rating, comment } = req.body;
+    volenteerReport.name= name;
+    volenteerReport.sit_rating= sit_rating;
+    volenteerReport.lay_down_rating = lay_down_rating;
+    volenteerReport.walk_on_leash_rating = walk_on_leash_rating;
+    volenteerReport.sit_in_crate_rating = sit_in_crate_rating;
+    volenteerReport.comment =comment;
+    volenteerReport.save(err => {
+        console.log("volenteer: "+ volenteerReport);
+        if (err) return res.json({ success: false, error: err });
+        return res.json({ success: true });
+    });
+    
+});
 
 module.exports = router;
