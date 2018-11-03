@@ -133,19 +133,19 @@ class Signup extends Component {
           </FormGroup>
           <Button
             // block
-            // bsSize="large"
+            bsSize="large"
             // disabled={!this.validateForm()}
             type="submit"
             onClick={this.onSubmit}
           >
             Signup
           </Button><br />
-          <p>if you have account  <a className="button" type="submit" href="" onClick={this.onClickLogin.bind(this)}>Login
+          <p>if you have account  <a  type="submit" href="" onClick={this.onClickLogin.bind(this)}>Login
           {this.state.showLogin && <Redirect to={{
             pathname: '/login'
           }} />}</a></p>
         </form>
-         {<Results data={this.state.data}/> && this.state.showresult  }
+         {this.state.showresult ? <Results data={this.state.data}/>: null  }
         </div>
     );
   }

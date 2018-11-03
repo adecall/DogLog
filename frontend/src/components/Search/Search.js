@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import { Button,Jumbotron,FormGroup,FormControl,Form, Row, Col} from 'react-bootstrap';
 import SearchResult from "../SearchResult";
 import "./Search.css";
@@ -25,10 +26,10 @@ class Search extends Component {
 
 componentDidMount() {
     this.getSearchDataFromDb();
-    if (!this.state.intervalIsSet) {
-      let interval = setInterval(this.getSearchDataFromDb, 1000);
-      this.setState({ intervalIsSet: interval });
-    }
+    // if (!this.state.intervalIsSet) {
+    //   let interval = setInterval(this.getSearchDataFromDb, 1000);
+    //   this.setState({ intervalIsSet: interval });
+    // }
   }
   componentWillUnmount() {
     if (this.state.intervalIsSet) {
@@ -57,7 +58,9 @@ componentDidMount() {
           .then(res => this.setState({ animal: res.data }))
           
       }
-
+      getImgurimage=()=> {
+          axios.get("https://api.imgur.com/3/image/{{imageHash}}",)
+      }
    
     render() {
         
@@ -112,7 +115,7 @@ componentDidMount() {
                 
                 </Row>   
         </Jumbotron> 
-    { this.state.showResult ? <SearchResult animal={this.state.animal} /> : null}
+            { this.state.showResult ? <SearchResult animal={this.state.animal} /> : null}
         
                   
         </div>
