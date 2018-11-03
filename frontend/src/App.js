@@ -7,8 +7,7 @@ import { BrowserRouter as Router, Route} from "react-router-dom";
 import { Panel} from "react-bootstrap";
 import AddRating from './components/AddRating';
 import Footer from "./components/Footer";
-// simport Contact from "./components/Contact";
-// import Map from "./components/Map"
+import Contact from "./components/Contact";
 class App extends Component {
   render(){
     return(
@@ -22,13 +21,14 @@ class App extends Component {
     <Route exact path="/signup" component={Signup} />
     <Route exact path="/login" component={Login} />
     <Route exact path="/animals" component={Animalinfo} />
-    <Route path="/addrating" component={AddRating} />
+    <Route exact path="/addrating" component={AddRating} />
+    
   </div>
   </Router>
   
   {/*<Results /> */}
   </Panel.Body>
-  <Panel.Footer><Footer  /></Panel.Footer>
+  <Panel.Footer><Footer /></Panel.Footer>
 
      
       </div>

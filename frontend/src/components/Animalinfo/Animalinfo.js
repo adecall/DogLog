@@ -9,6 +9,7 @@ class Animalinfo extends Component {
     constructor(props, context) {
         super(props, context);
         this.handleInputChange = this.handleInputChange.bind(this);  
+        this.onSubmit = this.onSubmit.bind(this);
     this.state = {
       animal: [],
       id: '',
@@ -16,7 +17,9 @@ class Animalinfo extends Component {
       name: '',
      weight: '',
       sex: '',
-      age: ''
+      age: '',
+      images: [],
+      message: ""
     };
 }
 
@@ -25,18 +28,27 @@ class Animalinfo extends Component {
     
    const { name, value } = e.target;
     this.setState({ [name]: value });
+    let images=[]
+    // for (var i = 0; i < e.target.files.length; i++) {
+    //   images[i] = e.target.files.item(i);
+    //   }
+    //    images = images.filter(image => image.name.match(/\.(jpg|jpeg|png|gif)$/))
+    //    let message = `${images.length} valid image(s) selected`
+    //    this.setState({ images, message })
   }
   
   onSubmit = (e) => {
     e.preventDefault();
+    const { id, animaltype, name, weight , sex, age, images } = this.state;
+    images.id=id;
+    images.name=name;
     
-    const { id, animaltype, name, weight , sex, age } = this.state;
-
     axios.post('/api/putAnimal', { id, animaltype, name, weight , sex, age})
       .then((result) => {
         console.log(result);
         //access the results here....
         // this.getDataFromDb();
+        
         this.setState({
             
             id: '',
@@ -44,10 +56,31 @@ class Animalinfo extends Component {
             name: '',
            weight: '',
             sex: '',
-            age: ''
+            age: '',
+            
           });
       });
+      const formData = new FormData();
+      var imagefile = document.querySelector('#animalImg');
+      formData.append("image", imagefile.files[0]);
+      debugger;
+      axios.post("https://api.imgur.com/3/image", 
+      formData,
+      {
+      "headers": {
+        Authorization:"Client-ID 7aca4ff5e398a1a",
+        'Content-Type': 'multipart/form-data'
+
+      }
+      
+      }).then((response)=>{
+        // console.log(response);
+      })
+
+     
   }
+  
+    
 
   render() {
     
@@ -118,6 +151,21 @@ class Animalinfo extends Component {
               
             />
           </FormGroup>
+          <FormGroup controlId="formControlsimg" bsSize="large">
+            <ControlLabel>img</ControlLabel>
+            <FormControl
+            autoFocus
+            type="file"
+            name="img"
+            id="animalImg"
+            onChange={this.handleInputChange}
+            multiple
+              value={this.state.img}
+              
+              
+            />
+            <p>{this.state.message}</p>
+          </FormGroup>
           <Button
             // block
             // bsSize="large"
@@ -127,6 +175,15 @@ class Animalinfo extends Component {
           >
            Submit
           </Button><br />
+          <Button
+            // block
+            // bsSize="large"
+            // disabled={!this.validateForm()}
+            type="submit"
+            onClick={this.getImgurImg}
+          >
+           Submit
+          </Button>
           
         </form>
         

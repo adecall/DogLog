@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 // this will be our data base's data structure 
 const VolunteerSchema = new Schema(
   {
-    id: Number,
+  
     fname: String,
     lname: String,
     email: String,

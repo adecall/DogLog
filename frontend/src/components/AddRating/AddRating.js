@@ -44,7 +44,7 @@ class AddRating extends Component {
         // console.log(this.props);
         return (
             <div className="volenteerrating">
-                <form id='add-rating' >
+                <form  id='add-rating' >
 
                     <FormGroup className='field'>
                         <ControlLabel> Volunteer Name </ControlLabel>
@@ -93,7 +93,7 @@ class AddRating extends Component {
 
                     </FormGroup>
 
-                    <Button className='submit' onClick={this.submitAddratingForm.bind(this)}>Submit</Button>
+                    <Button bsSize="large" className='submit' onClick={this.submitAddratingForm.bind(this)}>Submit</Button>
                 </form>
             </div>
         );

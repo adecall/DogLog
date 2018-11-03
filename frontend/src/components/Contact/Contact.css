@@ -1,8 +1,10 @@
 .contact{
-    padding: 30px 50px 30px 50px;
+    padding: 10px 50px 10px 50px;
   }
   .form{
+    
     width:40%;
+    font-size: 15px;
     margin:auto;
   }
   .btn{

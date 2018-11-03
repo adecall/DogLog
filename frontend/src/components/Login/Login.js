@@ -59,7 +59,7 @@ export default class Login extends Component {
             />
           </FormGroup>
           <Button
-            block
+           
             bsSize="large"
             disabled={!this.validateForm()}
             type="submit"
@@ -70,11 +70,11 @@ export default class Login extends Component {
           {this.state.volenteerrating && <Redirect to={{
             pathname: '/addrating'
           }} />}
-          </Button>
-          <p>Dont have an account signUp1<Button className="button" type="submit" onClick={this.onClickSignup.bind(this)}>Signup
-          {this.state.showSignup && <Redirect to={{
+          </Button><br/>
+          <p>Dont have an account <a  onClick={this.onClickSignup.bind(this)}>Signup
+          {this.state.showSignup ? <Redirect to={{
             pathname: '/signup'
-          }} />}</Button></p>
+          }} />: null}</a></p>
           
         </form>
       </div>

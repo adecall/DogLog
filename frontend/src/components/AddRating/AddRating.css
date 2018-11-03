@@ -1,12 +1,18 @@
 
-@media all and (min-width: 680px) {
+@media all and (min-width: 480px) {
     .volenteerrating {
       padding: 60px 0;
-      background-color:#46733E;
+      
     }
   
     .volenteerrating form {
+      background-color: rgb(190, 233, 217);
+      width:30%;
       margin: 0 auto;
       min-width: 320px;
+    }
+    #add-rating{
+      font-size: 16px;
+      padding: 20px;
     }
   }
