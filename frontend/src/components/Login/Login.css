@@ -6,12 +6,16 @@
     .Login form {
       font-family: 'Comfortaa', cursive;
       margin: 0 auto;
+<<<<<<< HEAD
       max-width: 320px;
       width: 100%;
       justify-content: center;
       border: 2px solid paleturquoise;
       padding: 20px;
       border-radius: 6px;
+=======
+      max-width: 420px;
+>>>>>>> 360f71c345fcd1d4f78cadb15817508923e44159
     }
     .button, button.btn.btn-lg.btn-default.btn-block, button.button.btn.default {
       font-family: 'Comfortaa', cursive;

@@ -1,8 +1,15 @@
 
+<<<<<<< HEAD
 @media all {
     .volunteerrating {
       margin-top: 5px;
       padding: 60px 0;
+=======
+@media all and (min-width: 480px) {
+    .volenteerrating {
+      padding: 60px 0;
+      
+>>>>>>> 360f71c345fcd1d4f78cadb15817508923e44159
     }
     .field.form-group{
       width: 100%;
@@ -10,10 +17,16 @@
       float: left;
     }
     .volenteerrating form {
+<<<<<<< HEAD
       border: solid 2px black;
+=======
+      background-color: rgb(190, 233, 217);
+      width:30%;
+>>>>>>> 360f71c345fcd1d4f78cadb15817508923e44159
       margin: 0 auto;
     }
     #add-rating{
+<<<<<<< HEAD
     width: 60%;
     margin: auto;
     border: 2px solid gray;
@@ -117,3 +130,9 @@
 
 
  
+=======
+      font-size: 16px;
+      padding: 20px;
+    }
+  }
+>>>>>>> 360f71c345fcd1d4f78cadb15817508923e44159

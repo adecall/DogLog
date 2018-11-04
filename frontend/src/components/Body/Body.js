@@ -6,7 +6,8 @@ import {Media } from "react-bootstrap";
 import About from "../About"
 import Search from "../Search";
 import AddRating from "../AddRating";
-// import { BrowserRouter as Router,Link } from "react-router-dom"
+import Login from "../Login";
+
 class Body extends Component {
     constructor(props) {
         super(props);
@@ -26,6 +27,7 @@ class Body extends Component {
             
             <div>
            
+<<<<<<< HEAD
            <Navbar inverse collapseOnSelect>
   <Navbar.Header>
     <Navbar.Brand>
@@ -54,6 +56,31 @@ class Body extends Component {
   </Navbar.Collapse>
 </Navbar>              
            <Search />
+=======
+                <Navbar className="customnavbar" bsStyle="name">
+                    <Navbar.Header>
+                        <Navbar.Brand>
+                        <a  href="#home">Logo</a>
+                        </Navbar.Brand>
+                        <Navbar.Toggle />
+                    </Navbar.Header>
+                    <Navbar.Collapse>
+                    <Nav>
+                        <NavItem  eventKey={1} href="#home">Home</NavItem>  
+                        <NavItem  eventKey={2} href="#about">About</NavItem>  
+                        <NavItem  eventKey={3} href="#">Service</NavItem>  
+                        <NavItem  eventKey={4} href="#">Portfolio</NavItem>                  
+                    </Nav>
+                    <Nav pullRight>
+                        <NavItem  eventKey={1} href="/login">Login</NavItem>
+                        <NavItem  eventKey={2} href="/signup">Signup</NavItem>
+                        <NavItem  eventKey={3} href="/animals">Administrator</NavItem>    
+                    </Nav>  
+                    </Navbar.Collapse> 
+                </Navbar>
+               
+                <Search />
+>>>>>>> 360f71c345fcd1d4f78cadb15817508923e44159
             
             <div id="about">
             <Row>
@@ -71,16 +98,27 @@ class Body extends Component {
             
                 </Media>
                 </Row>
-        </div>
+            </div>
             
-          
+        
             <About />
+<<<<<<< HEAD
             <Button className="submit"  type="submit"  onClick={this.onClickAnimal.bind(this)} >volunteer
             <br/>
           </Button>
           {this.state.showAnimal && <AddRating />}
           <br/> 
           <br/>         
+=======
+            <Button className="submit" bsSize="large" type="submit"  onClick={this.onClickAnimal.bind(this)} >Volentiers
+         
+          </Button>
+          {this.state.showAnimal ? <AddRating /> : null}
+          
+ 
+
+          
+>>>>>>> 360f71c345fcd1d4f78cadb15817508923e44159
         </div>        )
     }
 }

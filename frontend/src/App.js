@@ -21,13 +21,14 @@ class App extends Component {
     <Route exact path="/signup" component={Signup} />
     <Route exact path="/login" component={Login} />
     <Route exact path="/animals" component={Animalinfo} />
-    <Route path="/addrating" component={AddRating} />
+    <Route exact path="/addrating" component={AddRating} />
+    
   </div>
   </Router>
   
   {/*<Results /> */}
   </Panel.Body>
-  <Panel.Footer><Footer  /></Panel.Footer>
+  <Panel.Footer><Footer /></Panel.Footer>
 
      
       </div>

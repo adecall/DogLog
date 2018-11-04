@@ -4,15 +4,15 @@ const router = express.Router();
 const seeder = require('../test_data/seeder');
 
 router.get("/getData", (req, res) => {
-    db.User.find((err, data) => {
+    db.Volunteer.find((err, data) => {
         if (err) return res.json({ success: false, error: err });
         return res.json({ success: true, data: data });
     });
 });
 router.post("/putData", (req, res) => {
-    let data = new db.User();
+    let data = new db.Volunteer();
 
-    const { id, fname, lname, email } = req.body;
+    const { fname, lname, email } = req.body;
 
     // if ((!id && id !== 0) || !fname || !lname || !email) {
     //   return res.json({
@@ -21,7 +21,7 @@ router.post("/putData", (req, res) => {
     //   });
     // }
     // else{
-    data.id = id;
+    
     data.fname = fname;
 
     data.lname = lname;
@@ -60,6 +60,7 @@ router.post("/putAnimal", (req, res) => {
     animal.weight = weight;
     animal.sex = sex;
     animal.age = age;
+    animal.images =images;
     if (animaltype == "cat") {
         if (weight < 8) {
             animal.size = "small";
@@ -123,5 +124,22 @@ router.post('/seed_data', (req, res) => {
         })
     }
 })
+
+router.post("/addrating", (req, res) => {
+    let volenteerReport = new db.VolunteerReport();
+    const { name, sit_rating, lay_down_rating, walk_on_leash_rating, sit_in_crate_rating, comment } = req.body;
+    volenteerReport.name= name;
+    volenteerReport.sit_rating= sit_rating;
+    volenteerReport.lay_down_rating = lay_down_rating;
+    volenteerReport.walk_on_leash_rating = walk_on_leash_rating;
+    volenteerReport.sit_in_crate_rating = sit_in_crate_rating;
+    volenteerReport.comment =comment;
+    volenteerReport.save(err => {
+        console.log("volenteer: "+ volenteerReport);
+        if (err) return res.json({ success: false, error: err });
+        return res.json({ success: true });
+    });
+    
+});
 
 module.exports = router;

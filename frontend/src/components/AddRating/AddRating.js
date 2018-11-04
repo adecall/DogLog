@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { FormGroup, FormControl,ControlLabel,Button } from "react-bootstrap";
 import "./AddRating.css"
+import axios from "axios";
 class AddRating extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            volenteer_report: [],
             name: "",
             sit_rating: "",
             lay_down_rating: "",
@@ -13,16 +15,35 @@ class AddRating extends Component {
             comment: ""
         }
     }
+    onAddratingChange=event =>{
+        const { name, value }= event.target;
+        this.setState({[name]: value });
 
-    submitForm(event) {
-        event.preventDefault();
-
-        console.log(this.state);
     }
+
+    submitAddratingForm(event) {
+        event.preventDefault();
+        const { name, sit_rating, lay_down_rating, walk_on_leash_rating, sit_in_crate_rating, comment}= this.state;
+        axios.post("/api/addrating",{ name, sit_rating, lay_down_rating, walk_on_leash_rating, sit_in_crate_rating, comment } )
+        .then((addratingresult) => {
+            console.log(addratingresult);
+            this.setState({
+                
+                name: "",
+                sit_rating: "",
+                lay_down_rating: "",
+                walk_on_leash_rating: "",
+                sit_in_crate_rating: "",
+                comment: ""
+            })
+        }
+        
+        )}
 
     render() {
         // console.log(this.props);
         return (
+<<<<<<< HEAD
             <div className="volunteerrating">
                 <form id='add-rating' onSubmit={this.submitForm.bind(this)}>
                     <FormGroup className='field'>
@@ -30,13 +51,26 @@ class AddRating extends Component {
                         </ControlLabel>
                         <br/>
                         <input type="text" onChange={(event) => this.setState({ name: event.target.value })} />
+=======
+            <div className="volenteerrating">
+                <form  id='add-rating' >
+
+                    <FormGroup className='field'>
+                        <ControlLabel> Volunteer Name </ControlLabel>
+                        <input type="text" name="name" vlaue={this.state.name} onChange={this.onAddratingChange }/>
+>>>>>>> 360f71c345fcd1d4f78cadb15817508923e44159
                     </FormGroup>
 <p4>rating system: 1 = reasonable, 2 = good; 3 = excellent</p4>
 <br/>
 <br/>
                     <FormGroup className='field'>
+<<<<<<< HEAD
                         <ControlLabel> sit! score </ControlLabel>
                         <FormControl componentClass="select" onChange={(event) => this.setState({ sit_rating: event.target.value })} >
+=======
+                        <ControlLabel> sit_rating </ControlLabel>
+                        <FormControl componentClass="select" name="sit_rating" value={this.state.value} onChange={this.onAddratingChange} >
+>>>>>>> 360f71c345fcd1d4f78cadb15817508923e44159
                             <option value='1'> 1 </option>
                             <option value='2'> 2 </option>
                             <option value='3'> 3 </option>
@@ -44,8 +78,13 @@ class AddRating extends Component {
                     </FormGroup>
 
                     <FormGroup className='field'>
+<<<<<<< HEAD
                         <ControlLabel> down! rating </ControlLabel>
                         <FormControl componentClass="select" onChange={(event) => this.setState({ lay_down_rating: event.target.value })} >
+=======
+                        <ControlLabel> lay_down_rating </ControlLabel>
+                        <FormControl componentClass="select" name="lay_down_rating" value={this.state.value} onChange={this.onAddratingChange} >
+>>>>>>> 360f71c345fcd1d4f78cadb15817508923e44159
                             <option value='1'> 1 </option>
                             <option value='2'> 2 </option>
                             <option value='3'> 3 </option>
@@ -53,8 +92,13 @@ class AddRating extends Component {
                     </FormGroup>
 
                     <FormGroup className='field'>
+<<<<<<< HEAD
                         <ControlLabel> walk on leash rating </ControlLabel>
                         <FormControl componentClass="select" onChange={(event) => this.setState({ walk_on_leash_rating: event.target.value })} >
+=======
+                        <ControlLabel> walk_on_leash_rating </ControlLabel>
+                        <FormControl componentClass="select" name="walk_on_leash_rating" value={this.state.value} onChange={this.onAddratingChange} >
+>>>>>>> 360f71c345fcd1d4f78cadb15817508923e44159
                             <option value='1'> 1 </option>
                             <option value='2'> 2 </option>
                             <option value='3'> 3 </option>
@@ -62,8 +106,13 @@ class AddRating extends Component {
                     </FormGroup>
 
                     <FormGroup className='field'>
+<<<<<<< HEAD
                         <ControlLabel> crate rating </ControlLabel>
                         <FormControl componentClass="select" onChange={(event) => this.setState({ sit_in_crate_rating: event.target.value })} >
+=======
+                        <ControlLabel> sit_in_crate_rating </ControlLabel>
+                        <FormControl componentClass="select" name="sit_in_create_rating" value={this.state.value} onChange={this.onAddratingChange} >
+>>>>>>> 360f71c345fcd1d4f78cadb15817508923e44159
                             <option value='1'> 1 </option>
                             <option value='2'> 2 </option>
                             <option value='3'> 3 </option>
@@ -71,12 +120,21 @@ class AddRating extends Component {
                     </FormGroup>
 
                     <FormGroup className='field'>
+<<<<<<< HEAD
                         <ControlLabel> comment </ControlLabel>
                         <FormControl componentClass="textarea" type="text" onChange={(event) => this.setState({ comment: event.target.value })} />
 
                     </FormGroup>
 <br/>
                     <Button className='submit'>submit</Button>
+=======
+                        <ControlLabel> Comment </ControlLabel>
+                        <FormControl componentClass="textarea" type="text" name="comment" value={this.state.comment} onChange={this.onAddratingChange} />
+
+                    </FormGroup>
+
+                    <Button bsSize="large" className='submit' onClick={this.submitAddratingForm.bind(this)}>Submit</Button>
+>>>>>>> 360f71c345fcd1d4f78cadb15817508923e44159
                 </form>
             </div>
         );
