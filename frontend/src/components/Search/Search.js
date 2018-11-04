@@ -25,17 +25,13 @@ class Search extends Component {
    }
 
 componentDidMount() {
-    this.getSearchDataFromDb();
-    // if (!this.state.intervalIsSet) {
-    //   let interval = setInterval(this.getSearchDataFromDb, 1000);
-    //   this.setState({ intervalIsSet: interval });
-    // }
+    
+    
   }
   componentWillUnmount() {
-    if (this.state.intervalIsSet) {
-      clearInterval(this.state.intervalIsSet);
-      this.setState({ intervalIsSet: null });
-    }
+    
+      
+    
   }
 
     handleChange= event=>{
@@ -53,13 +49,16 @@ componentDidMount() {
       }
     
       getSearchDataFromDb = ()=> {
+          const imgid="";
           fetch("/api/getAnimal")
           .then(data => data.json())
-          .then(res => this.setState({ animal: res.data }))
-          
+          .then(res => this.setState({ animal: res.data ,imgid:res.data.id}))
+          this.getImgurimage(imgid)
       }
-      getImgurimage=()=> {
-          axios.get("https://api.imgur.com/3/image/{{imageHash}}",)
+      
+      getImgurimage=(imgid)=> {
+          axios.get("https://api.imgur.com/3/image/", {'headers': {
+            "Authorization":"Client-ID  7aca4ff5e398a1a"}})
       }
    
     render() {

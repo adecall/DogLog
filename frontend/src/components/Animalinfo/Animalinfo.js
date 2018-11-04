@@ -62,6 +62,7 @@ class Animalinfo extends Component {
       });
       const formData = new FormData();
       var imagefile = document.querySelector('#animalImg');
+      
       formData.append("image", imagefile.files[0]);
       debugger;
       axios.post("https://api.imgur.com/3/image", 
@@ -74,12 +75,18 @@ class Animalinfo extends Component {
       }
       
       }).then((response)=>{
-        // console.log(response);
+        console.log("img result "+ response);
+        this.getImgurl(response.id);
       })
-
+      
      
   }
-  
+  getImgurl=(imgid)=> {
+    axios.get("https://api.imgur.com/3/image/"+ imgid, {'headers': {
+      "Authorization":"Client-ID  8ee1b4d05dd499f"}}).then((response)=>{
+        
+      })
+}
     
 
   render() {
@@ -180,9 +187,9 @@ class Animalinfo extends Component {
             // bsSize="large"
             // disabled={!this.validateForm()}
             type="submit"
-            onClick={this.getImgurImg}
+            onClick={this.getImgurl}
           >
-           Submit
+           Imgurl
           </Button>
           
         </form>
