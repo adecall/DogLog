@@ -56,7 +56,7 @@ class Animalinfo extends Component {
       <div className="animaldata">
         <form>
           <FormGroup controlId="formControlsId" bsSize="large">
-              <ControlLabel>Id: </ControlLabel>
+              <ControlLabel>id </ControlLabel>
               <FormControl
                   type="id"
                   name="id"
@@ -65,7 +65,7 @@ class Animalinfo extends Component {
                   />
           </FormGroup>
           <FormGroup controlId="formControlsanimaltype" bsSize="large">
-              <ControlLabel>Animal Type: </ControlLabel>
+              <ControlLabel>species </ControlLabel>
               <FormControl
                   type="text"
                   name="animaltype"
@@ -76,7 +76,7 @@ class Animalinfo extends Component {
                 
         
           <FormGroup controlId="formControlsName" bsSize="large">
-            <ControlLabel>Name</ControlLabel>
+            <ControlLabel>name</ControlLabel>
             <FormControl
               autoFocus
               type="name"
@@ -86,7 +86,7 @@ class Animalinfo extends Component {
             />
           </FormGroup>
           <FormGroup controlId="formControlsWeight" bsSize="large">
-            <ControlLabel>Weight</ControlLabel>
+            <ControlLabel>weight</ControlLabel>
             <FormControl
             autoFocus
             type="weight"
@@ -97,7 +97,7 @@ class Animalinfo extends Component {
             />
           </FormGroup>
           <FormGroup controlId="formControlsAge" bsSize="large">
-            <ControlLabel>Age</ControlLabel>
+            <ControlLabel>age</ControlLabel>
             <FormControl
             autoFocus
             type="age"
@@ -108,7 +108,7 @@ class Animalinfo extends Component {
             />
           </FormGroup>
           <FormGroup controlId="formControlsSex" bsSize="large">
-            <ControlLabel>Sex</ControlLabel>
+            <ControlLabel>sex</ControlLabel>
             <FormControl
             autoFocus
             type="sex"

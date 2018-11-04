@@ -5,23 +5,26 @@ class ContactPage extends Component {
   render() {
     return(
       <div>
+        <br/>
       <Form className="form">
       <FormGroup>
-        <ControlLabel for="name">Name:</ControlLabel>
-        <input type="name" className="form-control" id="name" placeholder="Enter Name"/>
+        <input type="name" className="form-control" id="name" placeholder="name"/>
       </FormGroup>
       <FormGroup>
-        <ControlLabel for="email">Email:</ControlLabel>
-        <input type="email" className="form-control" id="email" placeholder="Enter email"/>
+        <input type="email" className="form-control" id="email" placeholder="email"/>
       </FormGroup>
       <FormGroup>
-        <ControlLabel for="msg">Message:</ControlLabel>
         <input type="message" className="form-control" id="msg" placeholder="message"/>
       </FormGroup>
-      
-      <Button  btn-default btn-primary id="submit1" className="btn ">Submit</Button>
+      <br/>
+      <br/>
+
+
+      <Button  btn-default btn-primary id="submit1" className="btn ">submit</Button>
     </Form>
+    <br/>
       </div>
+    
     );
   };
 }

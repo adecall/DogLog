@@ -23,16 +23,19 @@ class AddRating extends Component {
     render() {
         // console.log(this.props);
         return (
-            <div className="volenteerrating">
+            <div className="volunteerrating">
                 <form id='add-rating' onSubmit={this.submitForm.bind(this)}>
-
                     <FormGroup className='field'>
-                        <ControlLabel> Volunteer Name </ControlLabel>
+                        <ControlLabel>name
+                        </ControlLabel>
+                        <br/>
                         <input type="text" onChange={(event) => this.setState({ name: event.target.value })} />
                     </FormGroup>
-
+<p4>rating system: 1 = reasonable, 2 = good; 3 = excellent</p4>
+<br/>
+<br/>
                     <FormGroup className='field'>
-                        <ControlLabel> sit_rating </ControlLabel>
+                        <ControlLabel> sit! score </ControlLabel>
                         <FormControl componentClass="select" onChange={(event) => this.setState({ sit_rating: event.target.value })} >
                             <option value='1'> 1 </option>
                             <option value='2'> 2 </option>
@@ -41,7 +44,7 @@ class AddRating extends Component {
                     </FormGroup>
 
                     <FormGroup className='field'>
-                        <ControlLabel> lay_down_rating </ControlLabel>
+                        <ControlLabel> down! rating </ControlLabel>
                         <FormControl componentClass="select" onChange={(event) => this.setState({ lay_down_rating: event.target.value })} >
                             <option value='1'> 1 </option>
                             <option value='2'> 2 </option>
@@ -50,7 +53,7 @@ class AddRating extends Component {
                     </FormGroup>
 
                     <FormGroup className='field'>
-                        <ControlLabel> walk_on_leash_rating </ControlLabel>
+                        <ControlLabel> walk on leash rating </ControlLabel>
                         <FormControl componentClass="select" onChange={(event) => this.setState({ walk_on_leash_rating: event.target.value })} >
                             <option value='1'> 1 </option>
                             <option value='2'> 2 </option>
@@ -59,7 +62,7 @@ class AddRating extends Component {
                     </FormGroup>
 
                     <FormGroup className='field'>
-                        <ControlLabel> sit_in_crate_rating </ControlLabel>
+                        <ControlLabel> crate rating </ControlLabel>
                         <FormControl componentClass="select" onChange={(event) => this.setState({ sit_in_crate_rating: event.target.value })} >
                             <option value='1'> 1 </option>
                             <option value='2'> 2 </option>
@@ -68,12 +71,12 @@ class AddRating extends Component {
                     </FormGroup>
 
                     <FormGroup className='field'>
-                        <ControlLabel> Comment </ControlLabel>
+                        <ControlLabel> comment </ControlLabel>
                         <FormControl componentClass="textarea" type="text" onChange={(event) => this.setState({ comment: event.target.value })} />
 
                     </FormGroup>
-
-                    <Button className='submit'>Submit</Button>
+<br/>
+                    <Button className='submit'>submit</Button>
                 </form>
             </div>
         );

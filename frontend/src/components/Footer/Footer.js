@@ -5,8 +5,13 @@ import Contact from "../Contact";
 const Footer = () => (
   <footer className="container-fluid footer text-center">
   <Contact />
-    <span>petfinder@2018</span>
+    <span>doglog@2018</span>
+    <br/>
+    <br/>
+    <br/>
   </footer>
+  
+
 );
 
 export default Footer;
