@@ -1,3 +1,46 @@
 .about{
     margin-top: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+h1{
+    color: #337ab7;
+}
+p, h3{
+    margin-left: 7%;
+    margin-right: 7%;
+}
+p1{
+margin-left: 5%;
+}
+
+p2{
+    margin-left: 10%; 
+}
+p3{
+    margin-left: 15%;
+}
+.img-responsive, {
+    margin-bottom: 20px;
+    border: 2px solid black;
+}
+.row{
+display: flex;
+justify-content: center;
+margin-left: 10px;
+}
+.p2{
+margin-top: 5px;
+}
+
+@media screen and (max-width: 768px) {
+    h1{
+        font-size: 25%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1{
+        font-size: 25%;
+    }
 }

@@ -7,6 +7,24 @@ class ContactPage extends Component {
   render() {
     return(
       <div>
+<<<<<<< HEAD
+        <br/>
+      <Form className="form">
+      <FormGroup>
+        <input type="name" className="form-control" id="name" placeholder="name"/>
+      </FormGroup>
+      <FormGroup>
+        <input type="email" className="form-control" id="email" placeholder="email"/>
+      </FormGroup>
+      <FormGroup>
+        <input type="message" className="form-control" id="msg" placeholder="message"/>
+      </FormGroup>
+      <br/>
+      <br/>
+
+
+      <Button  btn-default btn-primary id="submit1" className="btn ">submit</Button>
+=======
       
       <Form  horizontal center bsSize="large" className="form" action="mailto:aynazewd@yahoo.com" method="post" enctype="text/plain">
       <h4><Fa pencil  className="fa pencil" /> Contact form</h4>
@@ -36,8 +54,11 @@ class ContactPage extends Component {
 
 
       <Button  bsSize="large" id="submit1" className="btn ">Submit</Button>
+>>>>>>> 360f71c345fcd1d4f78cadb15817508923e44159
     </Form>
+    <br/>
       </div>
+    
     );
   };
 }

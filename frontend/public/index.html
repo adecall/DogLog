@@ -10,12 +10,18 @@
       homescreen on Android. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+<<<<<<< HEAD
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+    <!--
+=======
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.js'></script>
       <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.css' rel='stylesheet' />
       <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v3.1.3/mapbox-gl-directions.js'></script>
       <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v3.1.3/mapbox-gl-directions.css' type='text/css' />
       <!--
+>>>>>>> 360f71c345fcd1d4f78cadb15817508923e44159
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
       Only files inside the `public` folder can be referenced from the HTML.
@@ -24,13 +30,93 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>react app</title>
+    <style>
+			#instagram{
+				border: 2px solid paleturquoise;
+				border-radius: 6px;
+				margin-left: 10px;
+				margin-right: 10px;
+			}
+     @keyframes slide {
+	      0% {
+	        opacity: 0;
+	        transform: translateY(70%);
+	      } 
+	      100% {
+	        opacity: 1;
+	        transform: translateY(0%);
+	      }
+	    }
+	    @-webkit-keyframes slide {
+	      0% {
+	        opacity: 0;
+	        -webkit-transform: translateY(70%);
+	      } 
+	      100% {
+	        opacity: 1;
+	        -webkit-transform: translateY(0%);
+	      }
+	    }
+	    @media screen and (max-width: 768px) {
+				#formInlineAge.select.form-control,  #formInlineSex.select.form-control, #formInlineSize.select.form-control, .form-group  {
+	       width: 200%;
+	               text-align: center;
+	               font-size: 10px;
+	               height: 20px;
+	               margin-bottom: 5px;
+	       }
+	       #zipcode, #searchpets {
+	           font-size: 18px;
+	               height: 35px;
+	               padding-bottom:0%;
+	               padding-top:0%;
+	       }
+	background-image {
+	   height: 80%;
+	               }
+	#h1Header{
+	   margin-top: 50%;
+	   margin-bottom: 20%;
+	               }
+	}
+	col-sm-5{
+		size: 30%;
+	}
+	    @media screen and (max-width: 480px) {
+	   
+.select.form-control, #formInlineAge.select.form-control,  #formInlineSex.select.form-control, #formInlineSize.select.form-control  {
+	       				width: 100%;
+	               text-align: center;
+	               font-size: 5px;
+	               height: 15px;
+	               margin-bottom: 25px;
+	       }
+	    }
+	background-image {
+		 height: 100%;
+		 width: 100%;
+	               }
+	#h1Header{
+	   margin-top: 50%;
+	   margin-bottom: 20%;
+	               }
+
+	    
+  </style>
   </head>
   <body>
     <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
-    <div id="root"></div>
+      This app requires javascript
+		</noscript>
+		<div id="root"></div>
+		<div id="instagram">
+				<div className="gallery"></div>
+		<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+		<div class="elfsight-app-21611fb7-648e-40c2-8776-84255bc56823"></div>
+		<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+<div class="elfsight-app-df0238a1-f66d-41a2-b1ee-f294594e2cbd"></div>
+</div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

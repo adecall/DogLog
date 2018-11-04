@@ -31,7 +31,7 @@ class Signup extends Component {
     return this.state.email.length > 0 && this.state.password.length > 0 && this.state.fname.length>0 && this.state.lname.length>0 ;
   }
   componentDidMount() {
-    this.getDataFromDb();
+   // this.getDataFromDb();
     if (!this.state.intervalIsSet) {
       let interval = setInterval(this.getDataFromDb, 1000);
       this.setState({ intervalIsSet: interval});
@@ -91,7 +91,7 @@ class Signup extends Component {
       <div className="signin">
         <form>
           <FormGroup controlId="formBasicText">
-              <ControlLabel>First name: </ControlLabel>
+              <ControlLabel>first name: </ControlLabel>
               <FormControl
                   type="text"
                   name="fname"
@@ -100,7 +100,7 @@ class Signup extends Component {
                   />
           </FormGroup>
           <FormGroup controlId="lname">
-              <ControlLabel>Last name: </ControlLabel>
+              <ControlLabel>last name: </ControlLabel>
               <FormControl
                   type="text"
                   name="lname"
@@ -111,7 +111,7 @@ class Signup extends Component {
                 
         
           <FormGroup controlId="formControlsEmail" bsSize="large">
-            <ControlLabel>Email</ControlLabel>
+            <ControlLabel>email</ControlLabel>
             <FormControl
               autoFocus
               type="email"
@@ -121,7 +121,7 @@ class Signup extends Component {
             />
           </FormGroup>
           <FormGroup controlId="formControlsPassword" bsSize="large">
-            <ControlLabel>Password</ControlLabel>
+            <ControlLabel>password</ControlLabel>
             <FormControl
             autoFocus
             type="password"
@@ -138,12 +138,16 @@ class Signup extends Component {
             type="submit"
             onClick={this.onSubmit}
           >
-            Signup
+            signup
           </Button><br />
+<<<<<<< HEAD
+          <p8>if you have an account  <a className="button" type="submit" href="" onClick={this.onClickLogin.bind(this)}>login
+=======
           <p>if you have account  <a  type="submit" href="" onClick={this.onClickLogin.bind(this)}>Login
+>>>>>>> 360f71c345fcd1d4f78cadb15817508923e44159
           {this.state.showLogin && <Redirect to={{
             pathname: '/login'
-          }} />}</a></p>
+          }} />}</a></p8>
         </form>
          {this.state.showresult ? <Results data={this.state.data}/>: null  }
         </div>

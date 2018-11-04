@@ -42,7 +42,7 @@ export default class Login extends Component {
       <div className="Login">
         <form onSubmit={this.handleSubmit}>
           <FormGroup controlId="email" bsSize="large">
-            <ControlLabel>Email</ControlLabel>
+          <ControlLabel>email</ControlLabel>
             <FormControl
               autoFocus
               type="email"
@@ -50,13 +50,15 @@ export default class Login extends Component {
               onChange={this.handleChange}
             />
           </FormGroup>
+          <br/>
           <FormGroup controlId="password" bsSize="large">
-            <ControlLabel>Password</ControlLabel>
+            <ControlLabel>password</ControlLabel>
             <FormControl
               value={this.state.password}
               onChange={this.handleChange}
               type="password"
             />
+                 <br/>
           </FormGroup>
           <Button
            
@@ -65,16 +67,25 @@ export default class Login extends Component {
             type="submit"
             onClick={this.loginOnClick.bind(this)}
           >
-            Login
+            login
              
-          {this.state.volenteerrating && <Redirect to={{
+          {this.state.volunteerrating && <Redirect to={{
             pathname: '/addrating'
           }} />}
+<<<<<<< HEAD
+          </Button>
+          <br/>
+          <Button className="button" type="submit" onClick={this.onClickSignup.bind(this)}>sign up
+          {this.state.showSignup && <Redirect to={{
+            pathname: '/signup'
+          }} />}</Button>
+=======
           </Button><br/>
           <p>Dont have an account <a  onClick={this.onClickSignup.bind(this)}>Signup
           {this.state.showSignup ? <Redirect to={{
             pathname: '/signup'
           }} />: null}</a></p>
+>>>>>>> 360f71c345fcd1d4f78cadb15817508923e44159
           
         </form>
       </div>
