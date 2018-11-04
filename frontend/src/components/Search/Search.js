@@ -1,10 +1,8 @@
 import React, { Component } from "react";
-<<<<<<< HEAD
-import { Button,Jumbotron,FormGroup,FormControl, ButtonGroup} from 'react-bootstrap';
-=======
+
 import axios from "axios";
-import { Button,Jumbotron,FormGroup,FormControl,Form, Row, Col} from 'react-bootstrap';
->>>>>>> 360f71c345fcd1d4f78cadb15817508923e44159
+import { Button,Jumbotron,FormGroup,FormControl,Form,ButtonGroup, Row, Col} from 'react-bootstrap';
+
 import SearchResult from "../SearchResult";
 import "./Search.css";
 
@@ -29,25 +27,18 @@ class Search extends Component {
    }
 
 componentDidMount() {
-<<<<<<< HEAD
-   // this.getSearchDataFromDb();
-    if (!this.state.intervalIsSet) {
-      let interval = setInterval(this.getSearchDataFromDb, 1000);
-      this.setState({ intervalIsSet: interval });
-    }
-=======
+
     this.getSearchDataFromDb();
     // if (!this.state.intervalIsSet) {
     //   let interval = setInterval(this.getSearchDataFromDb, 1000);
     //   this.setState({ intervalIsSet: interval });
     // }
->>>>>>> 360f71c345fcd1d4f78cadb15817508923e44159
+
   }
   componentWillUnmount() {
-    if (this.state.intervalIsSet) {
-      clearInterval(this.state.intervalIsSet);
-      this.setState({ intervalIsSet: null });
-    }
+    
+      
+    
   }
 
     handleChange= event=>{
@@ -64,26 +55,20 @@ componentDidMount() {
         
       }
     
-<<<<<<< HEAD
-      //getSearchDataFromDb = ()=> {
-        //  fetch("/api/getAnimal")
-          //.then(data => data.json())
-         // .then(res => this.setState({ animal: res.animal }))
-          
-     // }
 
-=======
       getSearchDataFromDb = ()=> {
+          const imgid="";
           fetch("/api/getAnimal")
           .then(data => data.json())
-          .then(res => this.setState({ animal: res.data }))
-          
+          .then(res => this.setState({ animal: res.data ,imgid:res.data.id}))
+          this.getImgurimage(imgid)
       }
-      getImgurimage=()=> {
-          axios.get("https://api.imgur.com/3/image/{{imageHash}}",)
+      
+      getImgurimage=(imgid)=> {
+          axios.get("https://api.imgur.com/3/image/", {'headers': {
+            "Authorization":"Client-ID  7aca4ff5e398a1a"}})
       }
->>>>>>> 360f71c345fcd1d4f78cadb15817508923e44159
-   
+
     render() {
         
         return(
@@ -132,15 +117,10 @@ componentDidMount() {
                 </ButtonGroup>
                 </p10> 
         </Jumbotron> 
-<<<<<<< HEAD
-    { this.state.showResult ? <SearchResult animal={this.state.animal} /> : null}
-          
-                 
-=======
-            { this.state.showResult ? <SearchResult animal={this.state.animal} /> : null}
+   { this.state.showResult ? <SearchResult animal={this.state.animal} /> : null}
         
                   
->>>>>>> 360f71c345fcd1d4f78cadb15817508923e44159
+
         </div>
         );
     }
