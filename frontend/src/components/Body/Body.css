@@ -1,12 +1,6 @@
 body{
     font-family: 'Comfortaa', cursive;
 
-<<<<<<< HEAD
-=======
-.customnavbar{
-    background-color: rgb(190, 233, 217);
-    color: white;
->>>>>>> 360f71c345fcd1d4f78cadb15817508923e44159
 }
 nav.customnavbar{
     color:white;
@@ -34,9 +28,6 @@ nav.customnavbar{
     text-align: center;
     margin: auto;
 } 
-<<<<<<< HEAD
-
-=======
 .button{
     
     background-color: #6aeff8;
@@ -44,7 +35,6 @@ nav.customnavbar{
 }
 
  
->>>>>>> 360f71c345fcd1d4f78cadb15817508923e44159
 p{
     font-size: 16px;
     text-align: justify;

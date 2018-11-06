@@ -36,23 +36,35 @@ router.post("/putData", (req, res) => {
 
 router.get("/getAnimal", (req, res) => {
     // if animal type is dog 
+    const {size, agelable,sex, zipcode}= req.query;
     var query = {
-        $and: [{ animaltype: { $regex: req.body.animaltype, $options: 'i' } },
-        { size: { $regex: req.body.size, $options: 'i' } },
-        { agelable: { $regex: req.body.agelable, $options: 'i' } },
-        { sex: { $regex: req.body.sex, $options: 'i' } }, { weight: 1 }]
+        params:{
+        $and: [
+        { size: { $regex: size, $options: 'i' } },
+        { agelable: { $regex: agelable, $options: 'i' } },
+        { sex: { $regex: sex, $options: 'i' } },
+        { zipcode: { $regex: zipcode}}]}
     }
-    db.Animal.find(query, (err, animal) => {
-        console.log("animal" + animal);
+    // console.log("query: "+ query)
+    db.Animal.find({
+        $and: [
+        { size: { $regex: size, $options: 'i' } },
+        { agelable: { $regex: agelable, $options: 'i' } },
+        { sex: { $regex: sex, $options: 'i' } },
+        // { zipcode: { $regex: zipcode}}
+    ]}
+    , (err, data) => {
+        
         if (err) return res.json({ success: false, error: err });
-        return res.json({ success: true, animal: animal });
+        res.send(data)
+        console.log("animal" + data);
     });
 });
 
 
 router.post("/putAnimal", (req, res) => {
     let animal = new db.Animal();
-    const { id, animaltype, name, weight, sex, age } = req.body;
+    const { id, animaltype, name, weight, sex, age, zipcode } = req.body;
 
     animal.id = id;
     animal.animaltype = animaltype;
@@ -60,18 +72,20 @@ router.post("/putAnimal", (req, res) => {
     animal.weight = weight;
     animal.sex = sex;
     animal.age = age;
-    animal.images =images;
-    if (animaltype == "cat") {
-        if (weight < 8) {
-            animal.size = "small";
-        } else if ((weight > 9) && (weight < 13)) {
-            animal.size = "medium";
-        } else if ((weight > 14) && (weight < 20)) {
-            animal.size = "large";
-        } else if ((weight > 20)) {
-            animal.size = "extra-large";
-        }
-    } else if (animaltype == "dog") {
+    animal.zipcode = zipcode;
+    
+    // if (animaltype == "cat") {
+    //     if (weight < 8) {
+    //         animal.size = "small";
+    //     } else if ((weight > 9) && (weight < 13)) {
+    //         animal.size = "medium";
+    //     } else if ((weight > 14) && (weight < 20)) {
+    //         animal.size = "large";
+    //     } else if ((weight > 20)) {
+    //         animal.size = "extra-large";
+    //     }
+    // } else
+    //  if (animaltype == "dog") {
         if (weight < 25) {
             animal.size = "small";
         } else if ((weight >= 25) && (weight <= 50)) {
@@ -81,20 +95,21 @@ router.post("/putAnimal", (req, res) => {
         } else if ((weight > 75)) {
             animal.size = "extra-large";
         }
-    }
-    if ((animaltype == "dog") || (animaltype == "cat")) {
+    // }
+    // if ((animaltype == "dog") || (animaltype == "cat")) {
         if (age < 1) {
             animal.agelable = "baby"
         } else if (age > 1 && age <= 3) {
             animal.agelable = "young"
-        } else if (age >= 4 && age <= 10) {
+        } else if (age > 3 && age <= 10) {
             animal.agelable = "adult"
         } else if (age > 10) {
             animal.agelable = "senior"
         }
-    }
+    // }
+    
     animal.save(err => {
-        console.log("animal: " + animal);
+        
         if (err) return res.json({ success: false, error: err });
         return res.json({ success: true });
     })
@@ -141,5 +156,5 @@ router.post("/addrating", (req, res) => {
     });
     
 });
-
+// router.get("/getRating/")
 module.exports = router;

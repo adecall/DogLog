@@ -182,6 +182,12 @@ h3, p{
 
 
 }
+.doglist{
+    display: flex;
+    justify-content: center;
+    width: 30%;
+    
+}
 
 
 
