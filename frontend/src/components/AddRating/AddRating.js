@@ -8,6 +8,7 @@ class AddRating extends Component {
         this.state = {
             volenteer_report: [],
             name: "",
+            animal_id: "",
             sit_rating: "",
             lay_down_rating: "",
             walk_on_leash_rating: "",
@@ -30,6 +31,7 @@ class AddRating extends Component {
             this.setState({
                 
                 name: "",
+                animal_id: "",
                 sit_rating: "",
                 lay_down_rating: "",
                 walk_on_leash_rating: "",
@@ -49,6 +51,10 @@ class AddRating extends Component {
                     <FormGroup className='field'>
                         <ControlLabel> Volunteer Name </ControlLabel>
                         <input type="text" name="name" vlaue={this.state.name} onChange={this.onAddratingChange }/>
+                    </FormGroup>
+                    <FormGroup className='field'>
+                        <ControlLabel> Dog Id </ControlLabel>
+                        <input type="text" name="animal_id" vlaue={this.state.animal_id} onChange={this.onAddratingChange }/>
                     </FormGroup>
 <p4>rating system: 1 = reasonable, 2 = good; 3 = excellent</p4>
 <br/>
