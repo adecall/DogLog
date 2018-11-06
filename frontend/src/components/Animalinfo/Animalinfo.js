@@ -19,7 +19,7 @@ class Animalinfo extends Component {
      image: "",
       sex: '',
       age: '',
-      images: [],
+      
       message: "",
       loading: false,
     };
@@ -30,18 +30,12 @@ class Animalinfo extends Component {
     
    const { name, value } = e.target;
     this.setState({ [name]: value });
-    let images=[]
-    // for (var i = 0; i < e.target.files.length; i++) {
-    //   images[i] = e.target.files.item(i);
-    //   }
-    //    images = images.filter(image => image.name.match(/\.(jpg|jpeg|png|gif)$/))
-    //    let message = `${images.length} valid image(s) selected`
-    //    this.setState({ images, message })
+    
   }
   
   onSubmit = (e) => {
     e.preventDefault();
-    const { id, animaltype, name, weight , sex, age, image } = this.state;
+    const { id, animaltype, name, weight , sex, age } = this.state;
     
 
     const formData = new FormData();
@@ -85,7 +79,7 @@ class Animalinfo extends Component {
            weight: '',
             sex: '',
             age: '',
-           
+           image: '',
             loading: false,
             
           });
