@@ -2,12 +2,9 @@
 
 This project is intended to help shelters organize information about their dogs in an effort to increase pet adoption and interest in adopting from shelters.
 
-
-
 ## Get started locally
 
-
-### Frontend 
+### Frontend
 
 ```
 cd frontend
@@ -15,8 +12,7 @@ yarn install
 
 ```
 
-
-### Backend 
+### Backend
 
 First, copy the `server/.env.template` file to `server/.env`
 
@@ -25,7 +21,6 @@ cp server/.env.template server/.env`
 ```
 
 Then edit the `server/.env` file so it has the right configuration values for your local environment
-
 
 ```
 cd server
@@ -40,7 +35,6 @@ node server.js
 To seed the dataset with a bunch of fake shelters, volunteers, animals and volunteer reports, you can make an HTTP request to the `/api/seed_data` URL. 
 
 This call will populate data, but can optionally reset the whole set of collections if you pass `?reset=1` to the URL
-
 
 Populate data (no reset)
 ```

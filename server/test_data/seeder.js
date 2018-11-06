@@ -121,7 +121,7 @@ const buildAnimalCreationPromise = (shelter) => {
         db.Animal.create({
             animalType: 'dog',
             sex: gender,
-            size: Math.floor(Math.random() * 130) + 'lbs',
+            weight: Math.floor(Math.random() * 130) + 'lbs',
             age: Math.floor(Math.random() * 15),
             name: gender === 'F' ? dogNames.femaleRandom() : dogNames.maleRandom(),
             shelter: shelter._id
