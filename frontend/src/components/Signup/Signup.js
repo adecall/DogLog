@@ -140,11 +140,7 @@ class Signup extends Component {
           >
             signup
           </Button><br />
-<<<<<<< HEAD
           <p8>if you have an account  <a className="button" type="submit" href="" onClick={this.onClickLogin.bind(this)}>login
-=======
-          <p>if you have account  <a  type="submit" href="" onClick={this.onClickLogin.bind(this)}>Login
->>>>>>> 360f71c345fcd1d4f78cadb15817508923e44159
           {this.state.showLogin && <Redirect to={{
             pathname: '/login'
           }} />}</a></p8>
