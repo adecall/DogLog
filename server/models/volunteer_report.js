@@ -10,7 +10,6 @@ const VolunteerReport = new Schema({
     comment: String,
     volunteer: { type: Schema.Types.ObjectId, ref: 'Volunteer' },
     animal: { type: Schema.Types.ObjectId, ref: 'Animal' },
-    shelter: { type: Schema.Types.ObjectId, ref: 'Shelter' },
 });
 
 module.exports = mongoose.model('VolunteerReport', VolunteerReport);
