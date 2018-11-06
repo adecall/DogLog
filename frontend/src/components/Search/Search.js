@@ -140,8 +140,9 @@ componentDidMount() {
                     {animaldata.age}<br/>
                     <span style={{ color: "blue" }}> Sex : </span>
                     {animaldata.sex}<br/>
+                    {<img style={{width:120,height:120}}src={ animaldata.image } alt="dogimage"/>}
                     {/*<span style={{ color: "gray" }}> animal type: </span> {animaldata.animaltype} <br />*/}
-            <button onClick={() => this.getVolenteerRatingFromdb(animaldata._id)}>Ratings
+            <button onClick={() => this.getVolenteerRatingFromdb(animaldata.id)}>Ratings
             </button>
                   </ListItem>
                 ))}</List> ):null

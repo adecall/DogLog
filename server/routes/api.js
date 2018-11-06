@@ -64,7 +64,7 @@ router.get("/getAnimal", (req, res) => {
 
 router.post("/putAnimal", (req, res) => {
     let animal = new db.Animal();
-    const { id, animaltype, name, weight, sex, age, zipcode } = req.body;
+    const { id, animaltype, name, weight, sex, age, zipcode ,image} = req.body;
 
     animal.id = id;
     animal.animaltype = animaltype;
@@ -73,7 +73,7 @@ router.post("/putAnimal", (req, res) => {
     animal.sex = sex;
     animal.age = age;
     animal.zipcode = zipcode;
-    
+    animal.image = image; // I like comments
     // if (animaltype == "cat") {
     //     if (weight < 8) {
     //         animal.size = "small";
@@ -108,6 +108,7 @@ router.post("/putAnimal", (req, res) => {
         }
     // }
     
+    console.log(animal);
     animal.save(err => {
         
         if (err) return res.json({ success: false, error: err });
@@ -156,5 +157,5 @@ router.post("/addrating", (req, res) => {
     });
     
 });
-// router.get("/getRating/")
+router.get("/getRating/")
 module.exports = router;
