@@ -21,7 +21,7 @@ class Search extends Component {
         animaltype: "",
         size: "",
         age: "",
-        agelable: '',
+        agelabel: '',
         sex: ""
     }
    }
@@ -46,10 +46,10 @@ componentDidMount() {
     
     getSearchDataFromDb = ()=> {
     //   const imgid="";
-        const {agelable, sex, size}= this.state;
+        const {agelabel, sex, size}= this.state;
         axios.get("/api/getAnimal" 
         ,{ params:{
-            agelable: agelable,
+            agelabel: agelabel,
             size: size,
             sex: sex
         }}
@@ -57,7 +57,7 @@ componentDidMount() {
     ).catch(err => console.log(err)) 
     }
 
-    // getVolenteerRatingFromdb = (id) =>{
+    // getvolunteerRatingFromdb = (id) =>{
     //     axios.get("/api/getRating/" + id)
     //     .then(res => this.setState({ rating: res.ratingdata}))
     //     .catch(err => console.log(err))
@@ -80,7 +80,7 @@ componentDidMount() {
                 <Col xs={12} s={4} md={3} lg={3}>
                 <FormGroup className="form" controlId="formInlineAge">
                 {/*<ControlLabel>Age</ControlLabel>*/}
-                    <FormControl className="select" componentClass="select" name="agelable" value={this.state.value} onChange={this.handleChange} placeholder="Age">
+                    <FormControl className="select" componentClass="select" name="agelabel" value={this.state.value} onChange={this.handleChange} placeholder="Age">
                         <option value="select">select age</option>
                         <option value="baby">baby</option>
                         <option value="young">Young</option>
@@ -141,7 +141,7 @@ componentDidMount() {
                     <span style={{ color: "blue" }}> Sex : </span>
                     {animaldata.sex}<br/>
                     {/*<span style={{ color: "gray" }}> animal type: </span> {animaldata.animaltype} <br />*/}
-            <button onClick={() => this.getVolenteerRatingFromdb(animaldata._id)}>Ratings
+            <button onClick={() => this.getvolunteerRatingFromdb(animaldata._id)}>Ratings
             </button>
                   </ListItem>
                 ))}</List> ):null

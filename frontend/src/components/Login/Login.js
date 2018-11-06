@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import "./Login.css";
 import { Redirect} from "react-router-dom";
-// import  Signup from "../Signup";
+//import  Signup from "../Signup";
 
 export default class Login extends Component {
   constructor(props) {
@@ -10,14 +10,14 @@ export default class Login extends Component {
 
     this.state = {
       showSignup: false,
-      volenteerrating: false,
+      volunteerrating: false,
       email: "",
       password: ""
     };
   }
   loginOnClick(e){
     e.preventDefault();
-    this.setState({volenteerrating:!this.state.volenteertable})
+    this.setState({volunteerrating:!this.state.volunteertable})
   }
   onClickSignup(e){
     e.preventDefault();
@@ -33,7 +33,7 @@ export default class Login extends Component {
     });
   }
 
-  handleSubmit = event => {
+  zhandleSubmit = event => {
     event.preventDefault();
   }
 
@@ -75,7 +75,7 @@ export default class Login extends Component {
           </Button><br/>
           <p>Dont have an account <a  onClick={this.onClickSignup.bind(this)}>Signup
           {this.state.showSignup ? <Redirect to={{
-            pathname: '/signup'
+            pathname: '/Signup'
           }} />: null}</a></p>
           
         </form>
