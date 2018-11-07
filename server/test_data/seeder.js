@@ -88,7 +88,7 @@ const seedData = () => {
                             db.VolunteerReport.create({
                                 shelter: shelter._id,
                                 volunteer: createdVolunteers[randVolunteerIdx]._id,
-                                animal: createdAnimals[l]._id,
+                                animal_id: createdAnimals[l]._id,
                                 sit_rating: Math.floor((Math.random() * 5) + 1),
                                 lay_down_rating: Math.floor((Math.random() * 5) + 1),
                                 walk_on_leash_rating: Math.floor((Math.random() * 5) + 1),
