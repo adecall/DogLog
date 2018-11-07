@@ -1,3 +1,4 @@
+
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
@@ -13,7 +14,9 @@ const AnimalSchema = new Schema(
     size: String,
     agelabel: String,
     likes: Number,
+    image: String,
     shelter: { type: Schema.Types.ObjectId, ref: 'Shelter' },
+    
   },
   { timestamps: true }
 );

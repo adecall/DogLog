@@ -13,10 +13,8 @@
 }
 .jumbotron.container {
     position:relative;
-
     top:50px;
   }
-
 .Button {
     margin-bottom: 5px;
     font-size: 20px;
@@ -68,14 +66,9 @@ p10{
 }
   
 .p3 {
-
     text-align: center; 
     justify-content: center;
-
 }
-
-
-
 #searchResults, .empty {
     display: block;
     height: 50%;
@@ -88,7 +81,6 @@ p10{
     text-align: center;
     padding: 9px;
     border-collapse: collapse;
-
  }
    .navbar {
     width: 100%;
@@ -101,11 +93,9 @@ p10{
     margin-bottom: 15px;
     text-align: center;
  }
-
  .dropdown-content{
     background-color: black;
     color: white;
-
  }
  .extraInfo{
    background-color: red;
@@ -140,14 +130,11 @@ h3, p{
 }
 .p1, .p3{
     text-align: left
-
 }
 .p2{
     margin-left: 0%;
 }
-
 }
-
 @media only screen and (min-width: 480px) and (max-width: 767px){ 
     textarea.text.form-control, textarea.text.form-group {
         width: 50%;
@@ -159,6 +146,65 @@ h3, p{
 }
 select.select.form-control {
     font-size: 20px;
+    font-size: 20px;
+    margin: auto;
+    margin-bottom: 15px;
+    text-align: center;
+ }
+ .dropdown-content{
+    background-color: black;
+    color: white;
+ }
+ .extraInfo{
+   background-color: red;
+ }
+}
+ @media only screen and (min-width: 320px) and (max-width: 479px){
+    textarea.text.form-control, textarea.text.form-group{
+        width: 50%;
+        margin-right: 50%;
+        margin-bottom: 3px;
+ }
+ .button.button.btn.btn-default{
+     margin-top: 20px;
+     height: 50%;
+ }
+ select.select.form-control {
+    height: 200%;
+    font-size: 20px;
+    line-height: 150%;
+    margin-bottom: 0px;
+}
+h1{
+    font-size: 40px;
+}
+h3, p{
+    font-size: 15px;  
+}
+.p3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.p1, .p3{
+    text-align: left
+}
+.p2{
+    margin-left: 0%;
+}
+}
+@media only screen and (min-width: 480px) and (max-width: 767px){ 
+    textarea.text.form-control, textarea.text.form-group {
+        width: 50%;
+   margin-right: 50%;
+    margin-bottom: 3px;
+ }
+ .button.button.btn.btn-default{
+    margin-top: 20px;
+}
+select.select.form-control {
+    font-size: 20px;
+
     height: 100%;
      width: 100%;
      line-height: 150%;
@@ -174,20 +220,21 @@ h3, p{
 }
 .p1, .p3{
     text-align: left
-
 }
 .p2{
     margin-left: 0%;
 }
-
-
 }
 .doglist{
     display: flex;
     justify-content: center;
     width: 30%;
+
+    }
+
     
 }
+
 
 
 

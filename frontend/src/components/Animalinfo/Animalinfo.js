@@ -16,10 +16,12 @@ class Animalinfo extends Component {
       animaltype: '',
       name: '',
      weight: '',
+     image: "",
       sex: '',
       age: '',
       images: [],
-      message: ""
+      message: "",
+      loading: false,
     };
 }
 
@@ -39,13 +41,39 @@ class Animalinfo extends Component {
   
   onSubmit = (e) => {
     e.preventDefault();
-    const { id, animaltype, name, weight , sex, age, images } = this.state;
-    images.id=id;
-    images.name=name;
+    const { id, animaltype, name, weight , sex, age, image } = this.state;
     
-    axios.post('/api/putAnimal', { id, animaltype, name, weight , sex, age})
+
+    const formData = new FormData();
+    var imagefile = document.querySelector('#animalImg');
+
+    this.setState({loading: true}, () => {
+      formData.append("image", imagefile.files[0]);
+      console.log(formData);
+      axios.post("https://api.imgur.com/3/image", 
+        formData,
+        {
+        "headers": {
+          "Authorization":"Client-ID 7aca4ff5e398a1a",
+          'Content-Type': 'multipart/form-data'
+
+        }
+      
+      }).then((response)=>{
+      //console.log("img result "+ response);
+      //this.getImgurl(response.id);
+      const postData = { 
+        id, 
+        animaltype, 
+        name, 
+        weight, 
+        sex,
+        age,
+        'image': response.data.data.link
+      };
+
+      axios.post('/api/putAnimal', postData)
       .then((result) => {
-        console.log(result);
         //access the results here....
         // this.getDataFromDb();
         
@@ -57,36 +85,30 @@ class Animalinfo extends Component {
            weight: '',
             sex: '',
             age: '',
+           
+            loading: false,
             
           });
+      }).catch(err => {
+        alert(err);
+        this.setState({loading: false})
       });
-      const formData = new FormData();
-      var imagefile = document.querySelector('#animalImg');
-      
-      formData.append("image", imagefile.files[0]);
-      debugger;
-      axios.post("https://api.imgur.com/3/image", 
-      formData,
-      {
-      "headers": {
-        Authorization:"Client-ID 7aca4ff5e398a1a",
-        'Content-Type': 'multipart/form-data'
-
-      }
-      
-      }).then((response)=>{
-        console.log("img result "+ response);
-        this.getImgurl(response.id);
-      })
+    })
+    
+   
+     
       
      
+    })
+    
+    
   }
-  getImgurl=(imgid)=> {
-    axios.get("https://api.imgur.com/3/image/"+ imgid, {'headers': {
-      "Authorization":"Client-ID  8ee1b4d05dd499f"}}).then((response)=>{
+//   getImgurl=(imgid)=> {
+//     axios.get("https://api.imgur.com/3/image/"+ imgid, {'headers': {
+//       "Authorization":"Client-ID  8ee1b4d05dd499f"}}).then((response)=>{
         
-      })
-}
+//       })
+// }
     
 
   render() {
@@ -173,15 +195,30 @@ class Animalinfo extends Component {
             />
             <p>{this.state.message}</p>
           </FormGroup>
-          <Button
-            // block
-            // bsSize="large"
-            // disabled={!this.validateForm()}
-            type="submit"
-            onClick={this.onSubmit}
-          >
-           Submit
-          </Button><br />
+
+          {
+            this.state.loading
+             ? 
+              (
+                <Button
+                disabled={true}
+                >LOADING
+                </Button>
+              )
+             : 
+             (
+               <Button
+                  // block
+                  // bsSize="large"
+                  // disabled={!this.validateForm()}
+                  type="submit"
+                  onClick={this.onSubmit}
+                >
+                Submit
+                </Button>
+            )
+          }
+          <br />
           <Button
             // block
             // bsSize="large"

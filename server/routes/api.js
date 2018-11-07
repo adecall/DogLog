@@ -69,7 +69,15 @@ router.get("/getAnimal", (req, res) => {
 
 router.post("/putAnimal", (req, res) => {
     let animal = new db.Animal();
+<<<<<<< HEAD
     const { id, animaltype, name, weight, sex, age } = req.body;
+=======
+
+    const { id, animaltype, name, weight, sex, age, zipcode ,image} = req.body;
+=======
+    const { id, animaltype, name, weight, sex, age, zipcode } = req.body;
+>>>>>>> 86106eb3fed32315ed212cd8d9b917e88b062ce9
+
 
     animal.id = id;
     animal.animaltype = animaltype;
@@ -77,6 +85,7 @@ router.post("/putAnimal", (req, res) => {
     animal.weight = weight;
     animal.sex = sex;
     animal.age = age;
+<<<<<<< HEAD
     animal.images =images;
     if (animaltype == "cat") {
         if (weight < 8) {
@@ -89,6 +98,24 @@ router.post("/putAnimal", (req, res) => {
             animal.size = "extra-large";
         }
     } else if (animaltype == "dog") {
+=======
+    animal.zipcode = zipcode;
+
+    animal.image = image; // I like comments
+
+    // if (animaltype == "cat") {
+    //     if (weight < 8) {
+    //         animal.size = "small";
+    //     } else if ((weight > 9) && (weight < 13)) {
+    //         animal.size = "medium";
+    //     } else if ((weight > 14) && (weight < 20)) {
+    //         animal.size = "large";
+    //     } else if ((weight > 20)) {
+    //         animal.size = "extra-large";
+    //     }
+    // } else
+    //  if (animaltype == "dog") {
+>>>>>>> 86106eb3fed32315ed212cd8d9b917e88b062ce9
         if (weight < 25) {
             animal.size = "small";
         } else if ((weight >= 25) && (weight <= 50)) {
@@ -109,7 +136,15 @@ router.post("/putAnimal", (req, res) => {
         } else if (age > 10) {
             animal.agelabel = "senior"
         }
+<<<<<<< HEAD
     }
+=======
+    // }
+    
+
+    console.log(animal);
+
+>>>>>>> 86106eb3fed32315ed212cd8d9b917e88b062ce9
     animal.save(err => {
         console.log("animal: " + animal);
         if (err) return res.json({ success: false, error: err });
@@ -159,4 +194,9 @@ router.post("/addrating", (req, res) => {
     
 });
 
+<<<<<<< HEAD
+=======
+// router.get("/getRating/")
+
+>>>>>>> 86106eb3fed32315ed212cd8d9b917e88b062ce9
 module.exports = router;

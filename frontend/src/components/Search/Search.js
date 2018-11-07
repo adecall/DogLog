@@ -140,8 +140,18 @@ componentDidMount() {
                     {animaldata.age}<br/>
                     <span style={{ color: "blue" }}> Sex : </span>
                     {animaldata.sex}<br/>
+
+                    {<img style={{width:120,height:120}}src={ animaldata.image } alt="dogimage"/>}
                     {/*<span style={{ color: "gray" }}> animal type: </span> {animaldata.animaltype} <br />*/}
+            <button onClick={() => this.getVolenteerRatingFromdb(animaldata.id)}>Ratings
+
+                    {/*<span style={{ color: "gray" }}> animal type: </span> {animaldata.animaltype} <br />*/}
+<<<<<<< HEAD
             <button onClick={() => this.getvolunteerRatingFromdb(animaldata._id)}>Ratings
+=======
+            <button onClick={() => this.getVolenteerRatingFromdb(animaldata._id)}>Ratings
+
+>>>>>>> 86106eb3fed32315ed212cd8d9b917e88b062ce9
             </button>
                   </ListItem>
                 ))}</List> ):null
