@@ -6,6 +6,7 @@ const validator = require('validator');
 const mongodbErrorHandler = require('mongoose-mongodb-errors');
 const passportLocalMongoose = require('passport-local-mongoose');
 
+<<<<<<< HEAD
 const VolunteerSchema = new Schema({
     email: {
         type: String,
@@ -56,6 +57,19 @@ VolunteerSchema.plugin(mongodbErrorHandler);
   // },
   // { timestamps: true }
 // );
+=======
+// this will be our data base's data structure 
+const VolunteerSchema = new Schema(
+  {
+  
+    fname: String,
+    lname: String,
+    email: String,
+    password: String,
+  },
+  { timestamps: true }
+);
+>>>>>>> 5553315778dc54b04370319a3e0df2a5bdfadded
 
 // export the new Schema so we could modify it using Node.js
 module.exports = mongoose.model("Volunteer", VolunteerSchema);

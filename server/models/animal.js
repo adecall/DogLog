@@ -14,9 +14,7 @@ const AnimalSchema = new Schema(
     size: String,
     agelabel: String,
     likes: Number,
-    image: String,
-    shelter: { type: Schema.Types.ObjectId, ref: 'Shelter' },
-    
+    image: String,    
   },
   { timestamps: true }
 );
