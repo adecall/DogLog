@@ -73,7 +73,8 @@ export default class Login extends Component {
             pathname: '/addrating'
           }} />}
           </Button><br/>
-          <p>Dont have an account <a  onClick={this.onClickSignup.bind(this)}>Signup
+          <br></br>
+          <p>No account ?   <a  onClick={this.onClickSignup.bind(this)}>Signup
           {this.state.showSignup ? <Redirect to={{
             pathname: '/signup'
           }} />: null}</a></p>

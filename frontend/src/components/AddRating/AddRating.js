@@ -25,6 +25,7 @@ class AddRating extends Component {
     submitAddratingForm(event) {
         event.preventDefault();
         const { name, sit_rating, lay_down_rating, walk_on_leash_rating, sit_in_crate_rating, comment}= this.state;
+        axios.get("api/volenteer")
         axios.post("/api/addrating",{ name, sit_rating, lay_down_rating, walk_on_leash_rating, sit_in_crate_rating, comment } )
         .then((addratingresult) => {
             console.log(addratingresult);
