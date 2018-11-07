@@ -66,10 +66,7 @@ router.post("/putAnimal", (req, res) => {
     let animal = new db.Animal();
 
     const { id, animaltype, name, weight, sex, age, zipcode ,image} = req.body;
-  
-//<<<<<<< seed-data
-//======
-//>>>>>>> master
+
 
     animal.id = id;
     animal.animaltype = animaltype;
