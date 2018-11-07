@@ -8,6 +8,7 @@ import { Panel} from "react-bootstrap";
 import AddRating from './components/AddRating';
 import Footer from "./components/Footer";
 import Contact from "./components/Contact";
+
 class App extends Component {
   render(){
     return(
@@ -18,10 +19,12 @@ class App extends Component {
   <Router>
   <div>
   
-    <Route  path="/signup" component={Signup} />
-    <Route  path="/login" component={Login} />
-    <Route  path="/animals" component={Animalinfo} />
-    <Route path="/addrating" component={AddRating} />
+
+    <Route exact path="/Signup" component={Signup} />
+    <Route exact path="/Login" component={Login} />
+    <Route exact path="/animals" component={Animalinfo} />
+    <Route exact path="/addrating" component={AddRating} />
+
     
   </div>
   </Router>

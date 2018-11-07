@@ -4,10 +4,22 @@ const mongoose = require("mongoose");
 const express = require("express");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
-
+const passport = require('./passport');
+const db = require('./models');
 const API_PORT = 3001;
 const app = express();
 const apiRoutes = require('./routes/api');
+const authenticationUtils = require('./utils/authentication');
+
+
+
+
+  app.use(require('express-session')({ secret: 'keyboard cat23123', resave: false, saveUninitialized: false }));
+
+// Initialize Passport and restore authentication state, if any, from the
+// session.
+app.use(passport.initialize());
+app.use(passport.session());
 
 
 // (optional) only made for logging and

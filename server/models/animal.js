@@ -12,7 +12,7 @@ const AnimalSchema = new Schema(
     sex: String,
     age: Number,
     size: String,
-    agelable: String,
+    agelabel: String,
     likes: Number,
     image: String,
     shelter: { type: Schema.Types.ObjectId, ref: 'Shelter' },

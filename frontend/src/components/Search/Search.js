@@ -21,7 +21,7 @@ class Search extends Component {
         animaltype: "",
         size: "",
         age: "",
-        agelable: '',
+        agelabel: '',
         sex: ""
     }
    }
@@ -46,10 +46,10 @@ componentDidMount() {
     
     getSearchDataFromDb = ()=> {
     //   const imgid="";
-        const {agelable, sex, size}= this.state;
+        const {agelabel, sex, size}= this.state;
         axios.get("/api/getAnimal" 
         ,{ params:{
-            agelable: agelable,
+            agelabel: agelabel,
             size: size,
             sex: sex
         }}
@@ -140,10 +140,8 @@ componentDidMount() {
 
                     {<img style={{width:120,height:120}}src={ animaldata.image } alt="dogimage"/>}
                     {/*<span style={{ color: "gray" }}> animal type: </span> {animaldata.animaltype} <br />*/}
-            <button onClick={() => this.getVolenteerRatingFromdb(animaldata.id)}>Ratings
+            <button onClick={() => this.getVolunteerRatingFromdb(animaldata.id)}>Ratings
 
-                    {/*<span style={{ color: "gray" }}> animal type: </span> {animaldata.animaltype} <br />*/}
-           
             </button>
                   </ListItem>
                 ))}</List> ):null

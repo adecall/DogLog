@@ -51,7 +51,7 @@ class Signup extends Component {
   }
   onClickLogin(e){
     e.preventDefault();
-    this.setState({showLogin: !this.state.showLogin, showresult: this.state.sshowresult })
+    this.setState({showLogin: !this.state.showLogin, showresult: this.state.showresult })
   }
   onSubmit = (e) => {
     e.preventDefault();
@@ -88,7 +88,7 @@ class Signup extends Component {
     
     return (
     
-      <div className="signin">
+      <div className="Login">
         <form>
           <FormGroup controlId="formBasicText">
               <ControlLabel>first name: </ControlLabel>
@@ -127,8 +127,7 @@ class Signup extends Component {
             type="password"
             name="password"
               value={this.state.password}
-              onChange={this.handleInputChange}
-              
+              onChange={this.handleInputChange}    
             />
           </FormGroup>
           <Button
@@ -138,12 +137,12 @@ class Signup extends Component {
             type="submit"
             onClick={this.onSubmit}
           >
-            signup
-          </Button><br />
-          <p8>if you have an account  <a className="button" type="submit" href="" onClick={this.onClickLogin.bind(this)}>login
+            
+          </Button><br/>
+          <p>if you have an account  <a className="button" type="submit" href="" onClick={this.onClickLogin.bind(this)}>login
           {this.state.showLogin && <Redirect to={{
-            pathname: '/login'
-          }} />}</a></p8>
+            pathname: '/Login'
+          }} />}</a></p>
         </form>
          {this.state.showresult ? <Results data={this.state.data}/>: null  }
         </div>

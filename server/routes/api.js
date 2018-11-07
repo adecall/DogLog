@@ -2,6 +2,23 @@ const express = require('express');
 const db = require('../models')
 const router = express.Router();
 const seeder = require('../test_data/seeder');
+const volController = require('../controllers/volController');
+const authController = require('../controllers/authController');
+const passport = require('../passport');
+
+router.get('/Login', volController.Login);
+router.post('/Login', passport.authenticate('local'), function(req, res) {
+    console.log(req.user);
+    res.json({success: true, user: req.user});
+});
+
+
+router.get('/Signup', volController.Signup);
+
+router.post('/Signup', volController.Signup);
+
+router.get('/Logout', authController.Logout);
+
 
 router.get("/getData", (req, res) => {
     db.Volunteer.find((err, data) => {
@@ -36,28 +53,16 @@ router.post("/putData", (req, res) => {
 
 router.get("/getAnimal", (req, res) => {
     // if animal type is dog 
-    const {size, agelable,sex, zipcode}= req.query;
     var query = {
-        params:{
-        $and: [
-        { size: { $regex: size, $options: 'i' } },
-        { agelable: { $regex: agelable, $options: 'i' } },
-        { sex: { $regex: sex, $options: 'i' } },
-        { zipcode: { $regex: zipcode}}]}
+        $and: [{ animaltype: { $regex: req.body.animaltype, $options: 'i' } },
+        { size: { $regex: req.body.size, $options: 'i' } },
+        { agelabel: { $regex: req.body.agelabel, $options: 'i' } },
+        { sex: { $regex: req.body.sex, $options: 'i' } }, { weight: 1 }]
     }
-    // console.log("query: "+ query)
-    db.Animal.find({
-        $and: [
-        { size: { $regex: size, $options: 'i' } },
-        { agelable: { $regex: agelable, $options: 'i' } },
-        { sex: { $regex: sex, $options: 'i' } },
-        // { zipcode: { $regex: zipcode}}
-    ]}
-    , (err, data) => {
-        
+    db.Animal.find(query, (err, animal) => {
+        console.log("animal" + animal);
         if (err) return res.json({ success: false, error: err });
-        res.send(data)
-        console.log("animal" + data);
+        return res.json({ success: true, animal: animal });
     });
 });
 
@@ -66,7 +71,6 @@ router.post("/putAnimal", (req, res) => {
     let animal = new db.Animal();
 
     const { id, animaltype, name, weight, sex, age, zipcode ,image} = req.body;
-
 
     animal.id = id;
     animal.animaltype = animaltype;
@@ -78,18 +82,6 @@ router.post("/putAnimal", (req, res) => {
 
     animal.image = image; // I like comments
 
-    // if (animaltype == "cat") {
-    //     if (weight < 8) {
-    //         animal.size = "small";
-    //     } else if ((weight > 9) && (weight < 13)) {
-    //         animal.size = "medium";
-    //     } else if ((weight > 14) && (weight < 20)) {
-    //         animal.size = "large";
-    //     } else if ((weight > 20)) {
-    //         animal.size = "extra-large";
-    //     }
-    // } else
-    //  if (animaltype == "dog") {
         if (weight < 25) {
             animal.size = "small";
         } else if ((weight >= 25) && (weight <= 50)) {
@@ -99,24 +91,23 @@ router.post("/putAnimal", (req, res) => {
         } else if ((weight > 75)) {
             animal.size = "extra-large";
         }
-    // }
-    // if ((animaltype == "dog") || (animaltype == "cat")) {
+        
         if (age < 1) {
-            animal.agelable = "baby"
+            animal.agelabel = "baby"
         } else if (age > 1 && age <= 3) {
-            animal.agelable = "young"
-        } else if (age > 3 && age <= 10) {
-            animal.agelable = "adult"
+            animal.agelabel = "young"
+        } else if (age >= 4 && age <= 10) {
+            animal.agelabel = "adult"
         } else if (age > 10) {
-            animal.agelable = "senior"
+            animal.agelabel = "senior"
         }
-    // }
+    
     
 
     console.log(animal);
 
     animal.save(err => {
-        
+        console.log("animal: " + animal);
         if (err) return res.json({ success: false, error: err });
         return res.json({ success: true });
     })
@@ -148,20 +139,20 @@ router.post('/seed_data', (req, res) => {
 })
 
 router.post("/addrating", (req, res) => {
-    let volenteerReport = new db.VolunteerReport();
+    let volunteerReport = new db.VolunteerReport();
     const { name, sit_rating, lay_down_rating, walk_on_leash_rating, sit_in_crate_rating, comment } = req.body;
-    volenteerReport.name= name;
-    volenteerReport.sit_rating= sit_rating;
-    volenteerReport.lay_down_rating = lay_down_rating;
-    volenteerReport.walk_on_leash_rating = walk_on_leash_rating;
-    volenteerReport.sit_in_crate_rating = sit_in_crate_rating;
-    volenteerReport.comment =comment;
-    volenteerReport.save(err => {
-        console.log("volenteer: "+ volenteerReport);
+    volunteerReport.name= name;
+    volunteerReport.sit_rating= sit_rating;
+    volunteerReport.lay_down_rating = lay_down_rating;
+    volunteerReport.walk_on_leash_rating = walk_on_leash_rating;
+    volunteerReport.sit_in_crate_rating = sit_in_crate_rating;
+    volunteerReport.comment =comment;
+    volunteerReport.save(err => {
+        console.log("volunteer: "+ volunteerReport);
         if (err) return res.json({ success: false, error: err });
         return res.json({ success: true });
     });
-    
+
 });
 
 // router.get("/getRating/")

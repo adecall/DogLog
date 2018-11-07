@@ -6,7 +6,7 @@ class AddRating extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            volenteer_report: [],
+            volunteer_report: [],
             name: "",
             animal_id: "",
             sit_rating: "",
@@ -46,7 +46,7 @@ class AddRating extends Component {
     render() {
         // console.log(this.props);
         return (
-            <div className="volenteerrating">
+            <div className="volunteerrating">
                 <form  id='add-rating' >
 
                     <FormGroup className='field'>
