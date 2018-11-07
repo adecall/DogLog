@@ -66,6 +66,7 @@ const VolunteerSchema = new Schema(
     lname: String,
     email: String,
     password: String,
+    shelter: { type: Schema.Types.ObjectId, ref: 'Shelter' },
   },
   { timestamps: true }
 );
