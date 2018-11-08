@@ -10,7 +10,7 @@ import "./Body.css";
 // import Animalinfo from "../Animalinfo";
 import About from "../About";
 import Search from "../Search";
-import AddRating from "../AddRating";
+// import AddRating from "../AddRating";
 //import Login from "../Login";
 
 class Body extends Component {
@@ -37,7 +37,7 @@ class Body extends Component {
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
-          <Navbar.Collapse>
+          <Navbar.Collapse >
             <Nav>
               <NavItem eventKey={1} href="#home">
                 home
@@ -115,7 +115,7 @@ class Body extends Component {
         </div>
 
         <About />
-        <Button
+       {/* <Button
           className="submit"
           bsSize="large"
           type="submit"
@@ -123,7 +123,7 @@ class Body extends Component {
         >
           Volunteers
         </Button>
-        {this.state.showAnimal ? <AddRating /> : null}
+       {this.state.showAnimal ? <AddRating /> : null}*/}
       </div>
     );
   }

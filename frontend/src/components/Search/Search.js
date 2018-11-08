@@ -57,9 +57,9 @@ componentDidMount() {
     ).catch(err => console.log(err)) 
     }
 
-    getVolenteerRatingFromdb = (id) =>{
-        axios.get("/api/getRating/" + id)
-        .then(res => this.setState({ rating: res.ratingdata}))
+    getVolenteerRatingFromdb = (animalid) =>{
+        axios.get("/api/getRating/" + animalid)
+        .then(res => this.setState({ rating: res.data}))
         .catch(err => console.log(err))
     }
       
@@ -87,11 +87,11 @@ componentDidMount() {
             </FormGroup>
             <FormGroup className="Button">
             {/*<ControlLabel>Age</ControlLabel>*/}
-                <FormControl className="select" componentClass="select" name="age" value={this.state.value} onChange={this.handleChange} placeholder="Age">
+                <FormControl className="select" componentClass="select" name="agelable" value={this.state.value} onChange={this.handleChange} placeholder="Age">
                     <option value="select">which age group?</option>
                     <option className="extraInfo" value="baby">baby</option>
-                    <option className="extraInfo"value="young">young</option>
-                    <option className="extraInfo"value="adult">adult</option>
+                    <option className="extraInfo" value="young">young</option>
+                    <option className="extraInfo" value="adult">adult</option>
                     <option className="extraInfo" value="senior">senior</option>
                 </FormControl>
             </FormGroup>
@@ -120,7 +120,7 @@ componentDidMount() {
         </Jumbotron> 
             {/* this.state.showResult ? <SearchResult animal={this.state.animal} /> : null*/}
         
-            { this.state.animal.length >0 && <Jumbotron style={{backgroundColor:"#337ab7"}}>
+            { this.state.animal.length > 0 && <Jumbotron style={{backgroundColor:"#337ab7"}}>
                 <h1>Dogs Lists</h1>
             </Jumbotron>}
             
@@ -139,17 +139,29 @@ componentDidMount() {
                     {animaldata.sex}<br/>
 
                     {<img style={{width:120,height:120}}src={ animaldata.image } alt="dogimage"/>}
-                    {/*<span style={{ color: "gray" }}> animal type: </span> {animaldata.animaltype} <br />*/}
-            <button onClick={() => this.getVolenteerRatingFromdb(animaldata.id)}>Ratings
-
-                    {/*<span style={{ color: "gray" }}> animal type: </span> {animaldata.animaltype} <br />*/}
-           
+                    
+            <button onClick={() => this.getVolenteerRatingFromdb(animaldata._id)}>Ratings           
             </button>
+            
+            {this.state.rating.length ? ( 
+                <List>
+                 {this.state.rating.map(ratingsdata => (
+                   <ListItem className="doglist" style={{ padding: "10px" }} key={ratingsdata._id}>
+                 
+                     <span style={{ color: "blue" }}>Dog Name : </span>
+                     {ratingsdata.name}<br/>
+                     <span style={{ color: "blue" }}> Weight : </span>
+                     {ratingsdata.weight}<br/>
+                     <span style={{ color: "blue" }}> Age : </span>
+                     {ratingsdata.age}<br/>
+                     <span style={{ color: "blue" }}> Sex : </span>
+                     {ratingsdata.sex}<br/>
                   </ListItem>
                 ))}</List> ):null
                 
             }
-               
+            </ListItem>
+            ))}</List> ):null}  
         </div>
         );
     }

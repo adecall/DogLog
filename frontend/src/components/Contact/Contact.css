@@ -1,98 +1,132 @@
-.contact{
-    padding: 10px 50px 10px 50px;
-  }
-  .form{
-<<<<<<< HEAD
-    font-family: 'Comfortaa', cursive;
-=======
-    
->>>>>>> 360f71c345fcd1d4f78cadb15817508923e44159
-    width:40%;
-    font-size: 15px;
-    margin:auto;
-  }
-  .btn{
-    font-family: 'Comfortaa', cursive;
-    background-color: paleturquoise;
-    border: solid 2px black;
-    height: 50px;
-    width: 150px;
-    align-items: stretch;
-    margin-top: -20px;
-    color: black;
-    border-radius: 6px;
-    }
-
-  
-
-
-    @media only screen and (min-width: 320px) and (max-width: 479px){
-      #name.form-control {
-        width: 50%;
-        display: block;        
-        justify-content: center;
-        margin-bottom: 20px;
-        border: solid 1px dark grey;
-  
-    }
-    #email.form-control{
-      width: 50%;
-      display: block;        
-      justify-content: center;
-      margin-top: 20px;
-      border: solid 1px dark grey;
-    }
-    #msg.form-control{
-      width: 50%;
-      height: 80px;
-      display: block;
-      float: center;
-      justify-content: center;
-      margin-bottom: 50px;
-      border: solid 1px dark grey;
-      margin-top: 20px;
-    }
-    #submit1.btn.btn-default{
-      margin-top: 30px;
-    }
-    .img-responsive.img-rounded{
-      height: 50px;
-      width: 90px;
-    }
-    }
-    
-    @media only screen and (min-width: 480px) and (max-width: 767px){ 
-    
-      #name.form-control {
-        width: 50%;
-        display: block;        
-        justify-content: center;
-        margin-bottom: 20px;
-        border: solid 1px dark grey;
-  
-    }
-    #email.form-control{
-      width: 50%;
-      display: block;        
-      justify-content: center;
-      margin-top: 20px;
-      border: solid 1px dark grey;
-    }
-      #msg.form-control{
-        width: 50%;
-        height: 80px;    
-        display: block;
-        float: center;
-        justify-content: center;
-        margin-top: 20px;
-        border: solid 1px dark grey;
-      
-      }
-      #submit1.btn.btn-default{
-        margin-top: 30px;
-      }
-      .img-responsive.img-rounded{
-      height: 50px;
-      width: 90px;
-      }
-    }
+.contact {
+	padding: 10px 50px 10px 50px;
+}
+#name.form-control, #email.form-control {
+	width: 190px;		
+}
+#submit1 {
+	margin-top: 20px;
+	height: 70%;
+	font: 12px;
+}
+.form {
+	font-family: 'Comfortaa', cursive;
+	width: 25%;
+	font-size: 15px;
+	margin: auto;
+}
+.btn {
+	font-family: 'Comfortaa', cursive;
+	background-color: paleturquoise;
+	border: solid 2px black;
+	height: 50px;
+	width: 150px;
+	align-items: stretch;
+	margin-top: -20px;
+	color: black;
+	border-radius: 6px;
+}
+h4 {
+	text-align: center;
+}
+#name.form-control, #email.form-control {
+	width: 190px;
+}
+@media only screen and (min-width: 320px) and (max-width: 479px) {
+	#name.form-control {
+		width: 50%;
+		display: block;
+		justify-content: center;
+		margin-bottom: 20px;
+		border: solid 1px dark grey;
+	}
+	#email.form-control {
+		width: 50%;
+		display: block;
+		justify-content: center;
+		margin-top: 20px;
+		border: solid 1px dark grey;
+	}
+	#msg.form-control {
+		width: 50%;
+		height: 80px;
+		display: block;
+		float: center;
+		justify-content: center;
+		margin-bottom: 50px;
+		border: solid 1px dark grey;
+		margin-top: 20px;
+	}
+	.img-responsive.img-rounded {
+		height: 50px;
+		width: 90px;
+	}
+}
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	#name.form-control {
+		width: 50%;
+		display: block;
+		justify-content: center;
+		margin-bottom: 20px;
+		border: solid 1px dark grey;
+	}
+	#email.form-control {
+		width: 50%;
+		display: block;
+		justify-content: center;
+		margin-top: 20px;
+		border: solid 1px dark grey;
+	}
+	#msg.form-control {
+		width: 50%;
+		height: 80px;
+		display: block;
+		float: center;
+		justify-content: center;
+		margin-top: 20px;
+		border: solid 1px dark grey;
+	}
+	.img-responsive.img-rounded {
+		height: 50px;
+		width: 90px;
+	}
+}
+@media only screen and (min-width: 320px) and (max-width: 479px) {}
+#name.form-control, #email.form-control, #msg.form-control {
+	margin: auto;
+	width: 50%;
+	margin-left: 0px;
+	margin-right: 50%;
+	margin-bottom: 20px;
+}
+form {
+	height: 20%;
+}
+.btn.btn-lg.btn-default {
+	margin-top: 100%;
+	margin-bottom: 0px;
+}
+.footer.container-fluid.footer.text-center {
+	height: 150%;
+}
+.form.form.form-horizontal {
+	align-content: center;
+}
+@media only screen and (min-width: 480px) and (max-width: 790px) {
+	form {
+		height: 150%;
+	}
+	#name.form-control, #email.form-control {
+		width: 50%;
+		height: 30px;
+	}
+	#submit1.btn.btn-lg.btn-default {
+		margin-top: 10px;
+	}
+	.footer.container-fluid.footer.text-center {
+		height: 150%;
+	}
+	.form.form.form-horizontal {
+		align-content: center;
+	}
+}

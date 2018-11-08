@@ -8,8 +8,8 @@ const VolunteerSchema = new Schema(
     fname: String,
     lname: String,
     email: String,
-    password: String,
-    shelter: { type: Schema.Types.ObjectId, ref: 'Shelter' },
+    password: String
+    // shelter: { type: Schema.Types.ObjectId, ref: 'Shelter' },
   },
   { timestamps: true }
 );

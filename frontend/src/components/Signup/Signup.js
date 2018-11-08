@@ -16,7 +16,6 @@ class Signup extends Component {
     this.state = {
   
       data: [],
-      id: "",
       fname: '',
       lname: '',
       email: '',
@@ -28,14 +27,11 @@ class Signup extends Component {
 }
 
   validateForm() {
-    return this.state.email.length > 0 && this.state.password.length > 0 && this.state.fname.length>0 && this.state.lname.length>0 ;
+    return this.state.email.length > 0 && this.state.password.length > 6 && this.state.fname.length>3 && this.state.lname.length>3 ;
   }
   componentDidMount() {
-   // this.getDataFromDb();
-    if (!this.state.intervalIsSet) {
-      let interval = setInterval(this.getDataFromDb, 1000);
-      this.setState({ intervalIsSet: interval});
-    }
+   this.getDataFromDb();
+    
   }
   componentWillUnmount() {
     if (this.state.intervalIsSet) {
@@ -51,20 +47,15 @@ class Signup extends Component {
   }
   onClickLogin(e){
     e.preventDefault();
-    this.setState({showLogin: !this.state.showLogin, showresult: this.state.sshowresult })
+    this.setState({showLogin: !this.state.showLogin })
   }
   onSubmit = (e) => {
     e.preventDefault();
-    // get our form data out of state
-    let currentIds = this.state.data.map(data => data.id);
-    let idToBeAdded = 0;
-    while (currentIds.includes(idToBeAdded)) {
-      ++idToBeAdded;
-    }
+    
 
     const { fname, lname, email, password } = this.state;
 
-    axios.post('/api/putData', { id: idToBeAdded, fname, lname, email, password})
+    axios.post('/api/putData', {  fname, lname, email, password})
       .then((result) => {
         console.log(result);
         //access the results here....
@@ -134,7 +125,7 @@ class Signup extends Component {
           <Button
             // block
             bsSize="large"
-            // disabled={!this.validateForm()}
+             disabled={!this.validateForm()}
             type="submit"
             onClick={this.onSubmit}
           >

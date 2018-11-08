@@ -10,14 +10,14 @@ export default class Login extends Component {
 
     this.state = {
       showSignup: false,
-      volenteerrating: false,
+      volunteerrating: false,
       email: "",
       password: ""
     };
   }
   loginOnClick(e){
     e.preventDefault();
-    this.setState({volenteerrating:!this.state.volenteertable})
+    this.setState({ volunteerrating:!this.state.volenteertable})
   }
   onClickSignup(e){
     e.preventDefault();
@@ -69,10 +69,11 @@ export default class Login extends Component {
           >
             login
              
-          {this.state.volunteerrating && <Redirect to={{
-            pathname: '/addrating'
-          }} />}
+          
           </Button><br/>
+          {this.state.volunteerrating && <Redirect to={{
+            pathname: '/volunteer'
+          }} />}
           <br></br>
           <p>No account ?   <a  onClick={this.onClickSignup.bind(this)}>Signup
           {this.state.showSignup ? <Redirect to={{
