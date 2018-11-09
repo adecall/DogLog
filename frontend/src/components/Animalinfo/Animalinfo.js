@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import { FormGroup, FormControl,ControlLabel,Button } from "react-bootstrap";
+import { FormGroup, FormControl,ControlLabel,Button, Form } from "react-bootstrap";
 import "./Animalinfo.css";
 
 class Animalinfo extends Component {
@@ -110,7 +110,7 @@ class Animalinfo extends Component {
     return (
     
       <div className="animaldata">
-        <form>
+        <Form>
           <FormGroup controlId="formControlsId" bsSize="large">
               <ControlLabel>id </ControlLabel>
               <FormControl
@@ -213,17 +213,9 @@ class Animalinfo extends Component {
             )
           }
           <br />
-          <Button
-            // block
-            // bsSize="large"
-            // disabled={!this.validateForm()}
-            type="submit"
-            onClick={this.getImgurl}
-          >
-           Imgurl
-          </Button>
           
-        </form>
+          
+        </Form>
         
         </div>
     );

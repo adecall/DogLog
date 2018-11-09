@@ -38,7 +38,7 @@ class ContactPage extends Component {
               <input
                 type="email"
                 className="form-control"
-                id="email"
+                // id="email"
                 placeholder="Enter email"
               />
             </Col>

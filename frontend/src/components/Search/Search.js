@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import { Card, CardText, CardBody, CardLink, CardHeader } from 'reactstrap';
 import axios from "axios";
+
 import { Button,Jumbotron,FormGroup,FormControl,ButtonGroup, Col} from 'react-bootstrap';
 import SearchResult from "../SearchResult";
 import "./Search.css";
@@ -57,8 +59,8 @@ componentDidMount() {
     ).catch(err => console.log(err)) 
     }
 
-    getVolenteerRatingFromdb = (id) =>{
-        axios.get("/api/getRating/" + id)
+    getVolenteerRatingFromdb = (animalid) =>{
+        axios.get("/api/getRating/:" + animalid)
         .then(res => this.setState({ rating: res.ratingdata}))
         .catch(err => console.log(err))
     }
@@ -87,12 +89,12 @@ componentDidMount() {
             </FormGroup>
             <FormGroup className="Button">
             {/*<ControlLabel>Age</ControlLabel>*/}
-                <FormControl className="select" componentClass="select" name="age" value={this.state.value} onChange={this.handleChange} placeholder="Age">
+                <FormControl className="select" componentClass="select" name="agelabel" value={this.state.value} onChange={this.handleChange} placeholder="Age">
                     <option value="select">which age group?</option>
-                    <option className="extraInfo" value="baby">baby</option>
-                    <option className="extraInfo"value="young">young</option>
-                    <option className="extraInfo"value="adult">adult</option>
-                    <option className="extraInfo" value="senior">senior</option>
+                    <option  value="baby">baby</option>
+                    <option  value="young">young</option>
+                    <option value="adult">adult</option>
+                    <option  value="senior">senior</option>
                 </FormControl>
             </FormGroup>
       
@@ -120,7 +122,7 @@ componentDidMount() {
         </Jumbotron> 
             {/* this.state.showResult ? <SearchResult animal={this.state.animal} /> : null*/}
         
-            { this.state.animal.length >0 && <Jumbotron style={{backgroundColor:"#337ab7"}}>
+            { this.state.animal.length > 0 && <Jumbotron style={{backgroundColor:"paleturquoise"}}>
                 <h1>Dogs Lists</h1>
             </Jumbotron>}
             
@@ -129,25 +131,42 @@ componentDidMount() {
                 {this.state.animal.map(animaldata => (
                   <ListItem className="doglist" style={{ padding: "10px" }} key={animaldata._id}>
                 
-                    <span style={{ color: "blue" }}>Dog Name : </span>
-                    {animaldata.name}<br/>
-                    <span style={{ color: "blue" }}> Weight : </span>
-                    {animaldata.weight}<br/>
-                    <span style={{ color: "blue" }}> Age : </span>
-                    {animaldata.age}<br/>
-                    <span style={{ color: "blue" }}> Sex : </span>
-                    {animaldata.sex}<br/>
-
-                    {<img style={{width:120,height:120}}src={ animaldata.image } alt="dogimage"/>}
-                    {/*<span style={{ color: "gray" }}> animal type: </span> {animaldata.animaltype} <br />*/}
-            <button onClick={() => this.getVolunteerRatingFromdb(animaldata.id)}>Ratings
-
+                  <Card className="cards">
+                  <CardBody>
+                  <CardHeader tag="h3"><span style={{ color: "blue" }}>Dog Name : {animaldata.name} </span></CardHeader>
+                  </CardBody>
+                  {<img style={{width:150,height:150}} src={ animaldata.image } alt="dogimage"/>}
+                  <CardBody>
+                  <CardText><span style={{ color: "blue" }}> Weight : {animaldata.weight} </span></CardText>
+                  <CardText><span style={{ color: "blue" }}> Age : {animaldata.age} </span></CardText>
+                  <CardText><span style={{ color: "blue" }}> Sex : {animaldata.sex} </span></CardText>
+                  <CardLink href="/Login">Volenteer Rating Form</CardLink>
+                  <CardLink href="#">Dog Rating </CardLink>
+                  </CardBody>
+              </Card>
+                    
+            <button onClick={() => this.getVolenteerRatingFromdb(animaldata.id)}>Ratings           
             </button>
+            
+            {this.state.rating.length ? ( 
+                <List>
+                 {this.state.rating.map(ratingsdata => (
+                   <ListItem className="doglist" style={{ padding: "10px" }} key={ratingsdata._id}>
+                 
+                     <span style={{ color: "blue" }}>Dog Name : </span>
+                     {ratingsdata.name}<br/>
+                     <span style={{ color: "blue" }}> Weight : </span>
+                     {ratingsdata.weight}<br/>
+                     <span style={{ color: "blue" }}> Age : </span>
+                     {ratingsdata.age}<br/>
+                     <span style={{ color: "blue" }}> Sex : </span>
+                     {ratingsdata.sex}<br/>
                   </ListItem>
                 ))}</List> ):null
                 
             }
-               
+            </ListItem>
+            ))}</List> ):null}  
         </div>
         );
     }

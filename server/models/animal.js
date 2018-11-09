@@ -5,7 +5,8 @@ const Schema = mongoose.Schema;
 // this will be our data base's data structure 
 const AnimalSchema = new Schema(
   {
-    id: Number,
+    
+    id: Schema.Types.ObjectId,
     animaltype: String,
     name: String,
     weight: Number,
@@ -13,9 +14,9 @@ const AnimalSchema = new Schema(
     age: Number,
     size: String,
     agelabel: String,
-    likes: Number,
-    image: String,
-    shelter: { type: Schema.Types.ObjectId, ref: 'Shelter' },
+    // likes: Number,
+    image: String
+    // shelter: { type: Schema.Types.ObjectId, ref: 'Shelter' },
     
   },
   { timestamps: true }

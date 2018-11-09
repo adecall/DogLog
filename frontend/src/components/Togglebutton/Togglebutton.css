@@ -1,0 +1,13 @@
+.volunteerbutton {
+    font-family: 'Comfortaa', cursive;
+    width: 100px;
+    overflow: hidden;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    color: black;
+    background-color: paleturquoise;
+    display: flex;
+justify-content: center;
+
+  }

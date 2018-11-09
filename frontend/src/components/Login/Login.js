@@ -44,7 +44,7 @@ export default class Login extends Component {
           <FormGroup controlId="email" bsSize="large">
           <ControlLabel>email</ControlLabel>
             <FormControl
-              autoFocus
+              // autoFocus
               type="email"
               value={this.state.email}
               onChange={this.handleChange}
@@ -69,10 +69,11 @@ export default class Login extends Component {
           >
             login
              
-          {this.state.volunteerrating && <Redirect to={{
-            pathname: '/addrating'
-          }} />}
+          
           </Button><br/>
+          {this.state.volunteerrating && <Redirect to={{
+            pathname: '/volunteer'
+          }} />}
           <br></br>
           <p>No account ?   <a  onClick={this.onClickSignup.bind(this)}>Signup
           {this.state.showSignup ? <Redirect to={{
