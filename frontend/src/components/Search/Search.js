@@ -23,7 +23,7 @@ class Search extends Component {
         animaltype: "",
         size: "",
         age: "",
-        agelabel: '',
+        agelabel: "",
         sex: ""
     }
    }
@@ -48,11 +48,11 @@ componentDidMount() {
     
     getSearchDataFromDb = ()=> {
     //   const imgid="";
-        const {agelabel, sex, size}= this.state;
+        const { size, agelabel, sex}= this.state;
         axios.get("/api/getAnimal" 
         ,{ params:{
-            agelabel: agelabel,
             size: size,
+            agelabel: agelabel,
             sex: sex
         }}
     ).then(res => this.setState({ animal: res.data })
@@ -140,6 +140,7 @@ componentDidMount() {
                   <CardText><span style={{ color: "blue" }}> Weight : {animaldata.weight} </span></CardText>
                   <CardText><span style={{ color: "blue" }}> Age : {animaldata.age} </span></CardText>
                   <CardText><span style={{ color: "blue" }}> Sex : {animaldata.sex} </span></CardText>
+                  <CardText><span style={{ color: "blue" }}> Sex : {animaldata.size} </span></CardText>
                   <CardLink href="/Login">Volenteer Rating Form</CardLink>
                   <CardLink href="#">Dog Rating </CardLink>
                   </CardBody>

@@ -54,14 +54,14 @@ router.get("/getRating:id", (req, res) => {
 
 router.get("/getAnimal", (req, res) => {
     // if animal type is dog 
-    var query = {
+    {}
+    db.Animal.find( {
         $and: [
             
-        { size: { $regex: req.query.size, $options: 'i' } },
-        { agelabel: { $regex: req.query.agelabel, $options: 'i' } },
-        { sex: { $regex: req.query.sex, $options: 'i' } }]
-    }
-    db.Animal.find(query, 
+        { size:  req.query.size  },
+        { agelabel:  req.query.agelabel  },
+        { sex:  req.query.sex,   }]
+    }, 
      (err, data) => {
         // console.log("animal" + animal);
         if (err) return res.json({ success: false, error: err });
