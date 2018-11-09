@@ -1,241 +1,226 @@
-.jumbobckd{
-    /* background-repeat: no-repeat; */
-    background-image: url(./images/dane3.jpg);
-    width: 100%;
-    height: auto;
-    background-size: cover;
-    background-repeat: no-repeat;
-   align-content: center;
-   color: black;
-   font-weight: bold;
-   border-radius: 6px;
-   text-shadow: -1px 0 paleturquoise, 0 1px paleturquoise, 1px 0 paleturquoise, 0 -1px paleturquoise;
+.jumbobckd {
+	/* background-repeat: no-repeat; */
+	background-image: url(./images/dane3.jpg);
+	width: 100%;
+	height: auto;
+	background-size: cover;
+	background-repeat: no-repeat;
+	align-content: center;
+	color: black;
+	font-weight: bold;
+	border-radius: 6px;
+	text-shadow: -1px 0 paleturquoise, 0 1px paleturquoise, 1px 0 paleturquoise, 0 -1px paleturquoise;
+}
+.jumbotron {
+	border-radius: 6px;
+	border: 2px solid grey;
 }
 .jumbotron.container {
-    position:relative;
-    top:50px;
-  }
-.Button {
-    margin-bottom: 5px;
-    font-size: 20px;
-    height: 100%;
-     width: 100%;
-     border: solid 2px paleturquoise;
-     color:white;
-     background-color: lightgrey;
-     border-radius: 6px;
-     text-align: center;
+	position: relative;
+	top: 50px;
 }
-   textarea.text.form-control   {
-    margin-bottom: 2px;
-    font-size: 15px;
-     width: 100%;
-     height: 35px;
-     border: solid 2px paleturquoise;
-     color: white;
-     background-color: lightgray;
-     resize: none;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     margin: auto;
-     line-height: 100%;
-   }
-   h1{
-    text-align: center; 
-    display: flex;
-    justify-content: center;
-    font-size: 300%;
-    color: #337ab7;
-    font-stretch: expanded;
+li.list-group-item {
+	text-align: center;
+	margin-bottom: 5px;
+	font-size: 16px;
+	color: grey;
 }
-p8{
-    text-align: center;
+.div2 {
+	border-radius: 6px;
+	color: grey;
+	background-color: paleturquoise;
+	height: 200%;
 }
-p10{
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.doglist {
+	margin-bottom: 10px;
 }
-.button.button.btn.btn-default
-{
-    margin-top: 0px;
-    border-radius: 6px;
+.button {
+	margin-bottom: 20px;
+	margin-top: 10px;
+	font-size: 20px;
+	height: 100%;
+	width: 100%;
+	border: solid 2px paleturquoise;
+	color: white;
+	background-color: lightgrey;
+	border-radius: 6px;
+	display: block;
 }
-  
+Button {
+	margin-bottom: 10px;
+	margin-top: 10px;
+	font-size: 20px;
+	height: 100%;
+	width: 30%;
+	border: solid 2px darkslategrey;
+	color: white;
+	background-color: lightgrey;
+	border-radius: 6px;
+	text-align: center;
+}
+button.button.btn.btn-default {
+	margin-bottom: 20px;
+	margin-top: 10px;
+	display: block;
+	margin-left: 0px;
+	border-radius: 6px;
+}
+span {
+	margin-top: 3px;
+	margin-bottom: 3px;
+	font-size: 18px;
+}
+textarea.text.form-control {
+	margin-bottom: 2px;
+	font-size: 12px;
+	width: 100%;
+	height: 35px;
+	border: solid 2px paleturquoise;
+	color: white;
+	background-color: lightgray;
+	resize: none;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+	margin-bottom: 10px;
+	line-height: 100%;
+}
+h1 {
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	font-size: 300%;
+	color: #337ab7;
+	font-stretch: expanded;
+}
+p8 {
+	text-align: center;
+}
+p10 {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 .p3 {
-    text-align: center; 
-    justify-content: center;
+	text-align: center;
+	justify-content: center;
 }
 #searchResults, .empty {
-    display: block;
-    height: 50%;
-    width: 50%;
-    line-height: 2;
-    color: black;
-    font-size: 20px;
-    margin: auto;
-    margin-bottom: 20px;
-    text-align: center;
-    padding: 9px;
-    border-collapse: collapse;
- }
-   .navbar {
-    width: 100%;
-    height: 50px;
-    color: paleturquoise;
-    border-radius: 6px;
-    border: 2px solid paleturquoise;
-    font-size: 20px;
-    margin: auto;
-    margin-bottom: 15px;
-    text-align: center;
- }
- .dropdown-content{
-    background-color: black;
-    color: white;
- }
- .extraInfo{
-   /* background-color: red; */
- }
- 
- @media only screen and (min-width: 320px) and (max-width: 479px){
-    textarea.text.form-control, textarea.text.form-group{
-        width: 50%;
-        margin-right: 50%;
-        margin-bottom: 3px;
- }
- .button.button.btn.btn-default{
-     margin-top: 20px;
-     height: 50%;
- }
- select.select.form-control {
-    height: 200%;
-    font-size: 20px;
-    line-height: 150%;
-    margin-bottom: 0px;
+	display: block;
+	height: 50%;
+	width: 50%;
+	line-height: 2;
+	color: black;
+	font-size: 20px;
+	margin: auto;
+	margin-bottom: 20px;
+	text-align: center;
+	padding: 9px;
+	border-collapse: collapse;
 }
-h1{
-    font-size: 40px;
+Button.form-group {
+	width: 264px;
 }
-h3, p{
-    font-size: 15px;  
+.dropdown-content {
+	background-color: paleturquoise;
+	color: white;
 }
-.p3{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+@media only screen and (min-width: 320px) and (max-width: 479px) {
+	textarea.text.form-control {
+		width: 30%;
+		height: 50%;
+		margin-right: 50%;
+		margin-bottom: 10px;
+		font-size: 10px;
+	}
+	button.toggle.navbar-collapsed {
+		margin-top: 0px;
+		margin-right: 0px;
+	}
+	select.select.form-control {
+		font-size: 12px;
+		height: 20px;
+		margin: auto;
+		text-align: center;
+		float: left;
+		width: 50%;
+	}
+	h1 {
+		font-size: 40px;
+	}
+	h3, p {
+		font-size: 15px;
+	}
+	.p3 {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.p1, .p3 {
+		text-align: left
+	}
+	.p2 {
+		margin-left: 0%;
+	}
+	button.button.btn.btn-default {
+		margin-bottom: 20px;
+		margin-top: 10px;
+		display: block;
+		margin-left: 0%;
+	}
+	Button.form-group {
+		width: 264px;
+	}
 }
-.p1, .p3{
-    text-align: left
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	textarea.text.form-control {
+		width: 25%;
+		height: 50%;
+		margin-right: 50%;
+		margin-bottom: 10px;
+		font-size: 10px;
+	}
+	button.toggle.navbar-collapsed {
+		margin-top: 0px;
+		margin-right: 0px;
+	}
+	select.select.form-control {
+		font-size: 12px;
+		height: 20px;
+		margin: auto;
+		text-align: center;
+		float: left;
+		width: 50%;
+	}
+	h1 {
+		font-size: 40px;
+	}
+	h3, p {
+		font-size: 15px;
+	}
+	.p3 {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.p1, .p3 {
+		text-align: left
+	}
+	.p2 {
+		margin-left: 0%;
+	}
+	button.button.btn.btn-default {
+		margin-bottom: 20px;
+		margin-top: 10px;
+		display: block;
+		margin-left: 0%;
+	}
+	Button.form-group {
+		width: 264px;
+	}
 }
-.p2{
-    margin-left: 0%;
+.cards{
+    width: 300px;
 }
-}
-@media only screen and (min-width: 480px) and (max-width: 767px){ 
-    textarea.text.form-control, textarea.text.form-group {
-        width: 50%;
-   margin-right: 50%;
-    margin-bottom: 3px;
- }
- .button.button.btn.btn-default{
-    margin-top: 20px;
-}
-select.select.form-control {
-    font-size: 20px;
-    font-size: 20px;
-    margin: auto;
-    margin-bottom: 15px;
-    text-align: center;
- }
- .dropdown-content{
-    background-color: black;
-    color: white;
- }
- .extraInfo{
-   background-color: red;
- }
-}
- @media only screen and (min-width: 320px) and (max-width: 479px){
-    textarea.text.form-control, textarea.text.form-group{
-        width: 50%;
-        margin-right: 50%;
-        margin-bottom: 3px;
- }
- .button.button.btn.btn-default{
-     margin-top: 20px;
-     height: 50%;
- }
- select.select.form-control {
-    height: 200%;
-    font-size: 20px;
-    line-height: 150%;
-    margin-bottom: 0px;
-}
-h1{
-    font-size: 40px;
-}
-h3, p{
-    font-size: 15px;  
-}
-.p3{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.p1, .p3{
-    text-align: left
-}
-.p2{
-    margin-left: 0%;
-}
-}
-@media only screen and (min-width: 480px) and (max-width: 767px){ 
-    textarea.text.form-control, textarea.text.form-group {
-        width: 50%;
-   margin-right: 50%;
-    margin-bottom: 3px;
- }
- .button.button.btn.btn-default{
-    margin-top: 20px;
-}
-select.select.form-control {
-    font-size: 20px;
-
-    height: 100%;
-     width: 100%;
-     line-height: 150%;
-}
-.Button.form-group{
-height: 40px;
-}
-h1{
-    font-size: 30px;
-}
-h3, p{
-    font-size: 15px;  
-}
-.p1, .p3{
-    text-align: left
-}
-.p2{
-    margin-left: 0%;
-}
-}
-.doglist{
-    display: flex;
-    justify-content: center;
-    width: 30%;
-
-    }
-
-    
-
-
-
-
-
- 

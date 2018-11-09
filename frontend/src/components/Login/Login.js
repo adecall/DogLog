@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import "./Login.css";
 import { Redirect} from "react-router-dom";
-// import  Signup from "../Signup";
+//import  Signup from "../Signup";
 
 export default class Login extends Component {
   constructor(props) {
@@ -17,7 +17,7 @@ export default class Login extends Component {
   }
   loginOnClick(e){
     e.preventDefault();
-    this.setState({ volunteerrating:!this.state.volenteertable})
+    this.setState({volunteerrating:!this.state.volunteertable})
   }
   onClickSignup(e){
     e.preventDefault();
@@ -33,7 +33,7 @@ export default class Login extends Component {
     });
   }
 
-  handleSubmit = event => {
+  zhandleSubmit = event => {
     event.preventDefault();
   }
 
@@ -44,7 +44,7 @@ export default class Login extends Component {
           <FormGroup controlId="email" bsSize="large">
           <ControlLabel>email</ControlLabel>
             <FormControl
-              autoFocus
+              // autoFocus
               type="email"
               value={this.state.email}
               onChange={this.handleChange}
@@ -77,7 +77,7 @@ export default class Login extends Component {
           <br></br>
           <p>No account ?   <a  onClick={this.onClickSignup.bind(this)}>Signup
           {this.state.showSignup ? <Redirect to={{
-            pathname: '/signup'
+            pathname: '/Signup'
           }} />: null}</a></p>
           
         </form>

@@ -52,7 +52,7 @@ class Body extends Component {
                 map
               </NavItem>
               <NavDropdown eventKey={3} title="admin" id="basic-nav-dropdown">
-                <NavItem eventKey={3.1} href="/login">
+                <NavItem eventKey={3.1} href="/Login">
                   login
                 </NavItem>
                 <NavItem eventKey={3.2} href="/signup">
@@ -73,7 +73,7 @@ class Body extends Component {
             <Media>
               <Media.Body>
                 <Media.Heading>
-                  <h1>// about doglog</h1>
+                  <h1>about doglog</h1>
                 </Media.Heading>
                 <h3>
                   welcome to la animal services. please check out the links on

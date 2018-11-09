@@ -79,7 +79,7 @@ class Signup extends Component {
     
     return (
     
-      <div className="signin">
+      <div className="Login">
         <form>
           <FormGroup controlId="formBasicText">
               <ControlLabel>first name: </ControlLabel>
@@ -118,23 +118,22 @@ class Signup extends Component {
             type="password"
             name="password"
               value={this.state.password}
-              onChange={this.handleInputChange}
-              
+              onChange={this.handleInputChange}    
             />
           </FormGroup>
           <Button
             // block
             bsSize="large"
-             disabled={!this.validateForm()}
+            //  disabled={!this.validateForm()}
             type="submit"
             onClick={this.onSubmit}
           >
-            signup
-          </Button><br />
-          <p8>if you have an account  <a className="button" type="submit" href="" onClick={this.onClickLogin.bind(this)}>login
-          {this.state.showLogin && <Redirect to={{
-            pathname: '/login'
-          }} />}</a></p8>
+            submit
+          </Button><br/>
+          <p>if you have an account  <a  type="submit" href="" onClick={this.onClickLogin.bind(this)}>login
+          {this.state.showLogin ? <Redirect to={{
+            pathname: '/Login'
+          }} />: null}</a></p>
         </form>
          {this.state.showresult ? <Results data={this.state.data}/>: null  }
         </div>

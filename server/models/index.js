@@ -4,10 +4,9 @@ const mongoose = require("mongoose");
 // this is our MongoDB database
 const dbRoute = process.env.MONGO_DB_URI;
 // connects our back end code with the database
-mongoose.connect(
-  dbRoute,
-  { useNewUrlParser: true }
-);
+mongoose.connect (dbRoute, { useNewUrlParser: true });
+mongoose.set('useCreateIndex', true);
+
 
 let db = mongoose.connection;
 

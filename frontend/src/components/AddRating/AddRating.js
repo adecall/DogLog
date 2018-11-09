@@ -9,7 +9,7 @@ class AddRating extends Component {
         super(props);
         this.onAddratingChange=this.onAddratingChange.bind(this);
         this.state = {
-            volenteer_report: [],
+            volunteer_report: [],
             name: "",
             animal_id: "",
             sit_rating: "",
@@ -29,9 +29,9 @@ class AddRating extends Component {
        
     submitAddratingForm(event) {
         event.preventDefault();
-        const { name, sit_rating, lay_down_rating, walk_on_leash_rating, sit_in_crate_rating, comment}= this.state;
+        const { name, sit_rating, lay_down_rating, walk_on_leash_rating, sit_in_crate_rating, comment,animal_id}= this.state;
         
-        axios.post("/api/addrating",{ name, sit_rating, lay_down_rating, walk_on_leash_rating, sit_in_crate_rating, comment } )
+        axios.post("/api/addrating/:"+animal_id,{ name, sit_rating, lay_down_rating, walk_on_leash_rating, sit_in_crate_rating, comment } )
         .then((addratingresult) => {
             console.log(addratingresult);
             this.setState({
@@ -51,7 +51,7 @@ class AddRating extends Component {
     render() {
         // console.log(this.props);
         return (
-            <div className="volenteerrating">
+            <div className="volunteerrating">
                 <form  id='add-rating' >
 
                     <FormGroup className='field'>

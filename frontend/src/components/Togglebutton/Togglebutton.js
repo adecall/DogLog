@@ -14,7 +14,7 @@ class Togglebutton extends Component {
     render(){
         return(
             <div>
-            <Button bsSize="large" bsWidth="100px" className='volunteerbutton' onClick={this.toggleHidden.bind(this)}>Dog Rating Form</Button>
+            <Button bsSize="large" bsWidth="100px" className='volunteerbutton' onClick={this.toggleHidden.bind(this)}>Rating Form</Button>
             {this.state.isHidden && <AddRating />}
             </div>
            
