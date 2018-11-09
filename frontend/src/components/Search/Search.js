@@ -140,8 +140,8 @@ componentDidMount() {
                   <CardText><span style={{ color: "blue" }}> Weight : {animaldata.weight} </span></CardText>
                   <CardText><span style={{ color: "blue" }}> Age : {animaldata.age} </span></CardText>
                   <CardText><span style={{ color: "blue" }}> Sex : {animaldata.sex} </span></CardText>
-                  <CardLink href="/Login">Volenteer Rating Form</CardLink>
-                  <CardLink href="#">Dog Rating </CardLink>
+                  {/*<CardLink href="/Login">Volenteer Rating Form</CardLink>
+                <CardLink href="#">Dog Rating </CardLink>*/}
                   </CardBody>
               </Card>
                     

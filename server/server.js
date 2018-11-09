@@ -31,4 +31,4 @@ app.use("/api", apiRoutes);
 
 
 // launch our backend into a port
-app.listen(PORT, () => console.log(`LISTENING ON PORT ${API_PORT}`));
+app.listen(PORT, () => console.log(`LISTENING ON PORT ${PORT}`));
