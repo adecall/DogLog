@@ -61,7 +61,7 @@ router.get("/getAnimal", (req, res) => {
         { agelabel: { $regex: req.query.agelabel, $options: 'i' } },
         { sex: { $regex: req.query.sex, $options: 'i' } }]
     }
-    db.Animal.find(query).populate("VolunteerReport").exec( 
+    db.Animal.find(query, 
      (err, data) => {
         // console.log("animal" + animal);
         if (err) return res.json({ success: false, error: err });
