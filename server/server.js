@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 const logger = require("morgan");
 const passport = require('./passport');
 const db = require('./models');
-const API_PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3001;
 const app = express();
 const apiRoutes = require('./routes/api');
 const authenticationUtils = require('./utils/authentication');
@@ -31,4 +31,4 @@ app.use("/api", apiRoutes);
 
 
 // launch our backend into a port
-app.listen(API_PORT, () => console.log(`LISTENING ON PORT ${API_PORT}`));
+app.listen(PORT, () => console.log(`LISTENING ON PORT ${API_PORT}`));
